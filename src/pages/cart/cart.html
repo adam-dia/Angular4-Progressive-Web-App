@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar class="ion-before">
+    <header></header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="cart_page">
+  <loader *ngIf="showSpinner"></loader>
+
+  <div *ngIf="!error">
+    <ion-list class="item_ajustment">
+        <cart-items *ngFor="let product of products" [product]= "product"></cart-items>
+    </ion-list>
+  </div>
+
+    <div *ngIf="error" class="empty_cart">
+
+        <p class="img"><img src="assets/img/err.png"></p>
+        <p class="msg">Votre panier est vide</p>
+    </div>
+
+</ion-content>
+
+<form [formGroup]= "rForm">
+<div *ngIf="!error">
+  <ion-grid class="order_now">
+
+      <ion-row class="discount">
+          <ion-col col-8 class="discountText">
+              <ion-input type="tel" formControlName="fidelity" placeholder="Numéro de la carte de fidélité" maxlength="13"></ion-input>
+              <!-- <ion-input type="text" formControlName="fidelity" placeholder="Entre votre coupon"></ion-input> -->
+          </ion-col>
+          <ion-col col-4 class="discountButton">
+              <!-- <button ion-button >Utiliser</button> -->
+              <button ion-button (click)="useFidelity(rForm.value)">Utiliser</button>
+          </ion-col>
+        </ion-row>
+
+    <ion-row>
+      <!-- <ion-col col-12 class="fidelity"><ion-input col-7 type="number" placeholder="Code de fidelité">
+      </ion-input><button col-3 ion-button color="danger">Utiliser</button></ion-col> -->
+
+      <ion-col col-12><p col-12 class="cart_total">Total : <span class="cart_sum">{{orderTotalPaid}} FCFA</span></p></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12><button col-12 ion-button (click)="validateOrder()">Acheter Maintenant</button></ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</form>

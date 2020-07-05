@@ -1,0 +1,169 @@
+<ion-header>
+
+  <!-- <ion-navbar>
+    <ion-title>Détail article</ion-title>
+  </ion-navbar> -->
+  <ion-navbar class="ion-before">
+      <header></header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page_container">
+  <!-- <search-bar></search-bar> -->
+
+  <div *ngIf="isPhone" class="phone">
+    <div *ngIf="id_product">
+
+    <ion-grid>
+    <loader *ngIf="showSpinner"></loader>
+      <!-- <product-info></product-info> -->
+      <form [formGroup]="rForm" >
+        <ion-row class="prod_name">
+          <ion-col col-12><h2>{{name}}</h2></ion-col>
+          </ion-row>
+        <!-- <ion-row class="prod_name"> -->
+        <ion-row class="prod_name" style="display: none;">
+          <ion-col col-12 ><ion-input type="text" formControlName="id_product" value={{id_product}}></ion-input>
+          </ion-col>
+          </ion-row>
+          <ion-row class="prod_image">
+              <ion-col col-12><img src={{picture}} alt=""></ion-col>
+          </ion-row>
+          <ion-row class="prod_price">
+              <ion-col col-12><h3 pull-right>{{price}} <span class="price_tag">FCFA</span></h3>  </ion-col>
+
+              <button ion-button class="btn-mine" (click)="dicrease()">-</button>
+              <ion-item>
+                  <ion-label fixed>Quantité: </ion-label>
+                  <ion-input class="quantity-ajust" type="tel"  min=1 value="{{quantity ? quantity : 1 }}" formControlName="quantity"></ion-input>
+                </ion-item>
+                <button ion-button class="btn-plus" (click)="increase()">+</button>
+          </ion-row>
+
+          <ion-row class="prod_button">
+              <ion-col col-12 class="prod_add" (click)="addToCart(rForm.value)"><button col-12 ion-button>Ajouter au panier</button></ion-col>
+          </ion-row>
+        </form>
+        <ion-row class="prod-manufacturer">
+          <h2> <ion-icon name="ios-ribbon"></ion-icon> Informations fournisseur</h2>
+          <!-- <hr> -->
+          <ion-col col-12> <span class="manu-logo"> <img src="{{manufac_pic}}"alt=""> </span> <h4 pull-left> {{manufac}}</h4></ion-col>
+        </ion-row>
+        <ion-row class="prod_description">
+              <ion-col col-12>
+                <h2 col-12> A propos de cet article</h2>
+                <h4>{{name}}</h4>
+                <div class="innerHtml" [innerHTML]="description"></div>
+              </ion-col>
+        </ion-row>
+
+
+          <div class="prod-suggestion">
+              <h2 col-12>Recommandés pour vous</h2>
+              <ion-scroll scrollX="true">
+                  <!-- <img src="{{recomProd.picture}}" alt="" *ngFor="let recomProd of recommandProduct"> -->
+
+                  <div class="recomProd" *ngFor="let recomProd of recommandProduct" (click)="goToProduct(recomProd)">
+                      <img src="{{recomProd.picture}}">
+                      <h2>{{ (recomProd.name | slice:0:20)+' ...'}}</h2>
+                      <p class="brands">Marque: <span class="brand">{{ (recomProd.manufac | slice:0:7)+'...'}}</span></p>
+                      <p class="prices">{{recomProd.price}} <span class="currency">FCFA</span></p>
+                  </div>
+
+                </ion-scroll>
+          </div>
+
+          <ion-row class="prod_delivery">
+              <ion-col><img src="assets/img/pay.jpg" alt=""></ion-col>
+          </ion-row>
+      </ion-grid>
+
+    </div>
+
+    <div *ngIf="!id_product" class="network">
+      <img src="assets/img/network.png" alt="">
+    </div>
+  </div>
+
+ <!-- ******************************************** Tablet - bloc ********************************** -->
+
+  <div *ngIf="isTablet" class="tablet">
+    <div *ngIf="id_product">
+    <ion-grid>
+    <loader *ngIf="showSpinner"></loader>
+      <!-- <product-info></product-info> -->
+      <form [formGroup]="rForm" >
+        <ion-row class="prod_name">
+          <ion-col col-12><h2>{{name}}</h2></ion-col>
+          </ion-row>
+        <!-- <ion-row class="prod_name"> -->
+        <ion-row class="prod_name" style="display: none;">
+          <ion-col col-12 ><ion-input type="text" formControlName="id_product" value={{id_product}}></ion-input>
+          </ion-col>
+          </ion-row>
+          <ion-row class="prod_image">
+              <ion-col col-12><img src={{picture}} alt=""></ion-col>
+          </ion-row>
+          <ion-row class="prod_price">
+              <ion-col col-12><h3 pull-right>{{price}} <span class="price_tag">FCFA</span></h3>  </ion-col>
+              <!-- <ion-col col-6><h4 pull-left> <ion-icon name="ios-ribbon"></ion-icon> Marque : <span class="seller_name">{{manufac}}</span> </h4></ion-col> -->
+
+              <button ion-button class="btn-mine" (click)="dicrease()">-</button>
+              <ion-item>
+                  <ion-label fixed>Quantité: </ion-label>
+                  <ion-input class="quantity-ajust" type="tel"  min=1 value="{{quantity ? quantity : 1 }}" formControlName="quantity"></ion-input>
+                </ion-item>
+                <button ion-button class="btn-plus" (click)="increase()">+</button>
+          </ion-row>
+
+          <ion-row class="prod_button">
+              <ion-col col-12 class="prod_add" (click)="addToCart(rForm.value)"><button col-12 ion-button>Ajouter au panier</button></ion-col>
+              <!-- <ion-col col-12 class="prod_buy" (click)="payProcess()"><button col-12 ion-button>Acheter maintenant</button></ion-col> -->
+          </ion-row>
+        </form>
+        <ion-row class="prod-manufacturer">
+          <h2> <ion-icon name="ios-ribbon"></ion-icon> Informations fournisseur</h2>
+          <!-- <hr> -->
+          <ion-col col-12> <span class="manu-logo"> <img src="{{manufac_pic}}"alt=""> </span> <h4 pull-left> {{manufac}}</h4></ion-col>
+          <!-- <ion-col col-12> <span class="manu-logo"> <img src="../assets/img/no-pic.png"alt=""> </span> <h4 pull-left> {{manufac}}</h4></ion-col> -->
+        </ion-row>
+        <ion-row class="prod_description">
+              <ion-col col-12>
+                <h2 col-12> A propos de cet article</h2>
+                <h4>{{name}}</h4>
+                <div class="innerHtml" [innerHTML]="description"></div>
+              </ion-col>
+        </ion-row>
+
+
+          <div class="prod-suggestion tablette">
+              <h2 col-12>Recommandés pour vous</h2>
+              <ion-scroll scrollX="true">
+                  <!-- <img src="{{recomProd.picture}}" alt="" *ngFor="let recomProd of recommandProduct"> -->
+
+                  <div class="recomProd" *ngFor="let recomProd of recommandProduct" (click)="goToProduct(recomProd)">
+                      <img src="{{recomProd.picture}}">
+                      <h2>{{ (recomProd.name | slice:0:20)+' ...'}}</h2>
+                      <p class="brands">Marque: <span class="brand">{{ (recomProd.manufac | slice:0:7)+'...'}}</span></p>
+                      <p class="prices">{{recomProd.price}} <span class="currency">FCFA</span></p>
+                  </div>
+
+                </ion-scroll>
+          </div>
+
+          <ion-row class="prod_delivery">
+              <ion-col><img src="assets/img/pay.jpg" alt=""></ion-col>
+          </ion-row>
+      </ion-grid>
+
+    </div>
+
+    <div *ngIf="!id_product" class="network">
+      <img src="assets/img/network.png" alt="">
+    </div>
+  </div>
+
+
+</ion-content>

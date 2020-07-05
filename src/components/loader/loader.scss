@@ -1,0 +1,18 @@
+loader {
+  z-index: 99 !important;
+  p{
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    height: 100% !important;
+    width: 100%;
+    margin-top: 0px;
+    position: fixed;
+    top: 0px;
+    z-index: 99 !important;
+    img{
+      width: 30%;
+      margin-top: 70%;
+      max-width: 30%;
+    }
+  }
+}

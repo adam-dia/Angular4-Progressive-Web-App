@@ -1,0 +1,95 @@
+cart-items {
+  .seller_name{
+    background: rgba(192, 192, 192, 0.3);
+    padding: 2px 10px;
+    border-radius: 2px;
+    color: black;
+    text-shadow: 0px 1px 1px white;
+  }
+  .cart_item{
+    margin-bottom: 5px;
+    h2{
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+    .seller{
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 200;
+    }
+    .cart_quantity{
+      font-weight: 200;
+      input[type=text]{
+        border: none;
+        border-bottom: 1px solid #e8e7e7;
+        text-align: center;
+      }
+      .quantity_ajust {
+        background: rgb(240, 239, 239);
+        font-size: 1.5em;
+        margin-top: -3px;
+        margin-right: 6px;
+        padding: 3px;
+        color: black;
+        font-weight: 500;
+        height: 20px;
+        width: 20px;
+        z-index: 0;
+      }
+      .product_som, .product_device{
+        color: #f16723;
+        font-weight: 400;
+      }
+      .product_device{
+        color: #f16723;
+        font-weight: 400;
+        font-size: .7em;
+      }
+    }
+
+  }
+
+  .cart_delete{
+    font-size: 2rem;
+    margin-right: 5px;
+    padding: 0px;
+    color: red;
+  }
+  .item-md .item-button{
+    padding: 0px;
+    font-size: 2.1rem;
+  }
+  .item-ios .item-button{
+    padding: 0px;
+    font-size: 2.1rem;
+  }
+  .order_now{
+    position: fixed;
+    bottom: 0px;
+    background: white;
+    .cart_total{
+      margin: 0px;
+      font-size: 2rem;
+      font-weight: 500;
+      .cart_sum{
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 300;
+        font-size: 1.7rem;
+      }
+    }
+    button{
+      background: #f16722;
+    }
+  }
+}
+.toast-container{
+  > div {
+    background-color: #0f142f !important;
+    text-align: center !important;
+    border-radius: 8px;
+    padding: 5px !important;
+    margin-top: 75px;
+    color: white;
+  }
+
+  }

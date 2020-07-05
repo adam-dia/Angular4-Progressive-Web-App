@@ -1,0 +1,110 @@
+<ion-header>
+
+  <!-- <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar> -->
+
+  <ion-navbar class="ion-before">
+      <header></header>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="loginPage">
+
+  <div *ngIf="isPhone" class="phone">
+    <loader *ngIf="showSpiner"></loader>
+
+    <div *ngIf="userLogged" class="res">
+      <p>{{userLogged}}</p>
+    </div>
+    <div class="login_logo">
+      <img src="assets/img/logo_black.png" alt="">
+      <p class="slogan">Retrouvez le plaisir de faire vos courses</p>
+      <h3>Bienvenue, </h3>
+      <p>Connectez-vous ?</p>
+      <p class="points"><img src="assets/img/points.png"></p>
+    </div>
+
+    <div col-11 class="login_form">
+
+      <form [formGroup]="rForm" (ngSubmit)="Register(rForm.value)">
+        <ion-list>
+              <ion-item col-10 class="first_element">
+                <ion-label fixed>E-Mail :</ion-label>
+                <ion-input type="text" formControlName="mail"></ion-input>
+              </ion-item>
+
+              <ion-item col-10 (click)="reset()">
+                <ion-label class="passwd">Mot de passe :</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+
+          </ion-list>
+
+          <div *ngIf="logError" col-10 class="logErr">
+            <p>Erreur d'authentification</p>
+          </div>
+
+          <div class="form_validate">
+              <button ion-button col-8 [disabled]="!rForm.valid">Se Connecter</button>
+          </div>
+
+        </form>
+
+      <div class="suscribe">
+          <p>Pas de compte? <button btn (click)="goToRegistration()"> Inscrivez-vous</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!--****************************** Tablet *************************  -->
+
+  <div *ngIf="isTablet" class="tablet">
+    <loader *ngIf="showSpiner"></loader>
+
+    <div *ngIf="userLogged" class="res">
+      <p>{{userLogged}}</p>
+    </div>
+    <div class="login_logo">
+      <img src="assets/img/logo_black.png" alt="">
+      <p class="slogan">Retrouvez le plaisir de faire vos courses</p>
+      <h3>Bienvenue, </h3>
+      <p>Connectez-vous ?</p>
+      <p class="points"><img src="assets/img/points.png"></p>
+    </div>
+
+    <div col-11 class="login_form">
+
+      <form [formGroup]="rForm" (ngSubmit)="Register(rForm.value)">
+        <ion-list>
+              <ion-item col-10 class="first_element">
+                <ion-label fixed>E-Mail :</ion-label>
+                <ion-input type="text" formControlName="mail"></ion-input>
+              </ion-item>
+
+              <ion-item col-10 (click)="reset()">
+                <ion-label class="passwd">Mot de passe :</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+              </ion-item>
+
+          </ion-list>
+
+          <div *ngIf="logError" col-10 class="logErr">
+            <p>Erreur d'authentification</p>
+          </div>
+
+          <div class="form_validate">
+              <button ion-button col-8 [disabled]="!rForm.valid">Se Connecter</button>
+          </div>
+
+        </form>
+
+      <div class="suscribe">
+          <p>Pas de compte? <button btn (click)="goToRegistration()"> Inscrivez-vous</button></p>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>

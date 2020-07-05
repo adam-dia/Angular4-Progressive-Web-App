@@ -1,0 +1,43 @@
+page-suggestion {
+  .suggestion-page{
+    background: #f2f2f2;
+    p{
+      font-size: 1.2rem;
+      line-height: 16px;
+      color: rgb(88, 88, 88);
+      text-shadow: 0px 1px 0 white;
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-size: 1.4em;
+      margin-bottom: 0px;
+    }
+
+  }
+  ion-list {
+    ion-item{
+      margin-bottom: 7px !important;
+    }
+    ion-label{
+      textarea{
+        border: 1px solid rgba(211, 211, 211, 0.5);
+        height: 120px;
+      }
+    }
+  }
+  .list-ios > .item-block,
+  .list-ios .item-block .item-inner,
+  .list-md .item-block .item-inner
+  {
+    border: none !important;
+  }
+  h2{
+    font-size: 2rem;
+    color: rgb(73, 72, 72);
+    font-weight: 400;
+    text-shadow: 0px 1px 0px white;
+    border-bottom: 1px solid rgba(131, 131, 131, 0.205);
+    line-height: 40px;
+  }
+
+}

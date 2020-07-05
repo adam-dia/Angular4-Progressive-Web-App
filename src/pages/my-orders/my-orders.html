@@ -1,0 +1,34 @@
+<ion-header>
+
+  <ion-navbar class="ion-before">
+    <header></header>
+  </ion-navbar>
+  <!-- <ion-navbar>
+    <ion-title>MyOrders</ion-title>
+  </ion-navbar> -->
+
+</ion-header>
+
+
+<ion-content class="orders-page">
+  <loader *ngIf="showSpinner"></loader>
+  <ion-grid>
+    <ion-row class="order-header">
+      <ion-col col-3>Reference</ion-col>
+      <ion-col col-3>Date</ion-col>
+      <ion-col col-3>Total</ion-col>
+      <ion-col col-3>Status</ion-col>
+    </ion-row>
+
+   <ion-row *ngFor="let order of orders;let i=index" class="order-items">
+      <ion-col col-3 >{{order.reference}}</ion-col>
+      <ion-col col-3>{{order.date_add}}</ion-col>
+      <ion-col col-3 class="order-price">{{order.total}} FCFA</ion-col>
+      <ion-col col-3>{{order.payment}}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <p>Historique de vos commandes depuis la création de votre compte</p>
+
+
+</ion-content>

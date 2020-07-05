@@ -1,0 +1,205 @@
+
+<ion-header>
+
+  <!-- <ion-navbar>
+    <ion-title>account</ion-title>
+  </ion-navbar> -->
+
+  <ion-navbar class="ion-before">
+      <header></header>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="account_page">
+
+  <div *ngIf="isPhone" class="phone">
+    <loader *ngIf="showSpiner"></loader>
+    <div class="login_logo">
+      <h3>Bienvenue, </h3>
+      <p>Inscrivez-vous ?</p>
+      <p class="points"><img src="assets/img/points.png"></p>
+    </div>
+    <div col-10 class="login_form">
+      <form [formGroup]="rForm" (submit)="register(rForm.value)">
+        <ion-list>
+            <ion-item col-10>
+              <ion-label>Sexe</ion-label>
+              <ion-select formControlName="gender">
+                <ion-option value="1">Monsieur</ion-option>
+                <ion-option value="2">Madame</ion-option>
+              </ion-select>
+            </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>Nom</ion-label>
+                <ion-input type="text" formControlName="firstname" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>Prenom</ion-label>
+                <ion-input type="text" formControlName="lastname"></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>E-Mail</ion-label>
+                <ion-input type="text" formControlName="email" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label >Mot de passe</ion-label>
+                <ion-input type="password" formControlName="password" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Date de Naissance</ion-label>
+                  <ion-datetime displayFormat="DD MMM YYYY" formControlName="birthday"
+                  monthNames="Janvier, fevrier, Mars, Avril, Mai, Juin, Juillet, Aout, Septembre, Octobre, Novembre, Decembre"
+                  monthShortNames="janvier, fevrier, mars, avril, mai, juin , juillet,aout, septembre,octobre,novembre,decembre "
+                  dayNames="Lundi, Mardi, Mercredi, Jeudi, Vendredi,Samedi,Dimanche"
+                  dayShortNames="lun, mar,mer,jeu,ven,sam,dim"
+                  ></ion-datetime>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label fixed>Numéro</ion-label>
+                  <ion-input type="text" formControlName="number" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Ville</ion-label>
+                  <ion-select submitText="Okay" cancelText="Annulé" formControlName="city" >
+                    <ion-option value="Abidjan">Abidjan</ion-option>
+                    <ion-option value="Yamoussokro">Yamoussokro</ion-option>
+                    <ion-option value="Bouaké">Boukaé</ion-option>
+                    <ion-option value="San-Pedro">San Pedro</ion-option>
+                  </ion-select>
+                </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Commune</ion-label>
+                  <ion-select submitText="Okay" cancelText="Annulé" formControlName="quarter" >
+                    <ion-option value="Adjame">Adjame</ion-option>
+                    <ion-option value="Yopougon" >Yopougon</ion-option>
+                    <ion-option value="Plateau">Plateau</ion-option>
+                    <ion-option value="Attecoube" >Attecoube</ion-option>
+                    <ion-option value="Cocody">Cocody</ion-option>
+                    <ion-option value="Marcory" >Marcory</ion-option>
+                    <ion-option value="Koumassi" >Koumassi</ion-option>
+                    <ion-option value="Treichville" >Treichville</ion-option>
+                    <ion-option value="PortBouet">Port-Bouët</ion-option>
+                    <ion-option value="Bouake">Bouaké</ion-option>
+                    <ion-option value="Yamoussoukro">Yamoussoukro</ion-option>
+                    <ion-option value="Daloa">Daloa</ion-option>
+                    <ion-option value="SanPedro">San-Pédro</ion-option>
+                  </ion-select>
+                </ion-item>
+
+          </ion-list>
+          <div class="form_validate">
+              <button ion-button col-8 [disabled]="!rForm.valid">S'Inscrire</button>
+          </div>
+      </form>
+      <div class="suscribe" (click)="goToLogin()">
+          <p>Déjà inscrit? <button btn> Connectez-vous</button></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- *************************** tablet  *******************-->
+
+  <div *ngIf="isTablet" class="tablet">
+    <loader *ngIf="showSpiner"></loader>
+    <div class="login_logo">
+      <h3>Bienvenue, </h3>
+      <p>Inscrivez-vous ?</p>
+      <p class="points"><img src="assets/img/points.png"></p>
+    </div>
+    <div col-10 class="login_form">
+      <form [formGroup]="rForm" (submit)="register(rForm.value)">
+        <ion-list>
+            <ion-item col-10>
+              <ion-label>Sexe</ion-label>
+              <ion-select formControlName="gender">
+                <ion-option value="1">Monsieur</ion-option>
+                <ion-option value="2">Madame</ion-option>
+              </ion-select>
+            </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>Nom</ion-label>
+                <ion-input type="text" formControlName="firstname" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>Prenom</ion-label>
+                <ion-input type="text" formControlName="lastname"></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label fixed>E-Mail</ion-label>
+                <ion-input type="text" formControlName="email" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                <ion-label >Mot de passe</ion-label>
+                <ion-input type="password" formControlName="password" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Date de Naissance</ion-label>
+                  <ion-datetime displayFormat="DD MMM YYYY" formControlName="birthday"
+                  monthNames="Janvier, fevrier, Mars, Avril, Mai, Juin, Juillet, Aout, Septembre, Octobre, Novembre, Decembre"
+                  monthShortNames="janvier, fevrier, mars, avril, mai, juin , juillet,aout, septembre,octobre,novembre,decembre "
+                  dayNames="Lundi, Mardi, Mercredi, Jeudi, Vendredi,Samedi,Dimanche"
+                  dayShortNames="lun, mar,mer,jeu,ven,sam,dim"
+                  ></ion-datetime>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label fixed>Numéro</ion-label>
+                  <ion-input type="text" formControlName="number" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Ville</ion-label>
+                  <ion-select submitText="Okay" cancelText="Annulé" formControlName="city" >
+                    <ion-option value="Abidjan">Abidjan</ion-option>
+                    <ion-option value="Yamoussokro">Yamoussokro</ion-option>
+                    <ion-option value="Bouaké">Boukaé</ion-option>
+                    <ion-option value="San-Pedro">San Pedro</ion-option>
+                  </ion-select>
+                </ion-item>
+
+              <ion-item col-10>
+                  <ion-label>Commune</ion-label>
+                  <ion-select submitText="Okay" cancelText="Annulé" formControlName="quarter" >
+                    <ion-option value="Adjame">Adjame</ion-option>
+                    <ion-option value="Yopougon" >Yopougon</ion-option>
+                    <ion-option value="Plateau">Plateau</ion-option>
+                    <ion-option value="Attecoube" >Attecoube</ion-option>
+                    <ion-option value="Cocody">Cocody</ion-option>
+                    <ion-option value="Marcory" >Marcory</ion-option>
+                    <ion-option value="Koumassi" >Koumassi</ion-option>
+                    <ion-option value="Treichville" >Treichville</ion-option>
+                    <ion-option value="PortBouet">Port-Bouët</ion-option>
+                    <ion-option value="Bouake">Bouaké</ion-option>
+                    <ion-option value="Yamoussoukro">Yamoussoukro</ion-option>
+                    <ion-option value="Daloa">Daloa</ion-option>
+                    <ion-option value="SanPedro">San-Pédro</ion-option>
+                  </ion-select>
+                </ion-item>
+
+          </ion-list>
+          <div class="form_validate">
+              <button ion-button col-8 [disabled]="!rForm.valid">S'Inscrire</button>
+          </div>
+      </form>
+      <div class="suscribe" (click)="goToLogin()">
+          <p>Déjà inscrit? <button btn> Connectez-vous</button></p>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

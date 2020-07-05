@@ -1,0 +1,37 @@
+menu-cart {
+  // margin-right: -10px;
+
+  ion-buttons{
+
+  }
+  .phone {
+    ion-badge{
+      border-radius: 4px;
+      color: #fff;
+      background-color: #488aff;
+      position: absolute;
+      left: 35px;
+      padding: 5px;
+      top: 0;
+      background: tomato !important;
+      font-size: 0.6em;
+    }
+  }
+  .tablet {
+    ion-icon {
+      font-size: 3em;
+    }
+    ion-badge{
+      border-radius: 4px;
+      color: #fff;
+      background-color: #488aff;
+      position: absolute;
+      left: 35px;
+      padding: 5px;
+      top: 0;
+      background: tomato !important;
+      font-size: 1em;
+    }
+  }
+
+}

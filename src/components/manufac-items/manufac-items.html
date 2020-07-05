@@ -1,0 +1,23 @@
+<div *ngIf="isPhone" class="phone">
+  <ion-row >
+      <ion-col col-12 class="categories_item" (click)="goToProduct(product)" >
+        <div class="categories_picture" *ngIf="!product.picture"><img src="assets/img/no-pic.jpg"></div>
+        <div class="categories_picture" *ngIf="product.picture"><img src={{product.picture}}></div>
+        <h2>{{ (product.name | slice:0:35)+' ...' }} </h2>
+        <p class="categories_seller">Marque : <span class="seller_name">{{product.manufac | slice:0:8}}</span></p>
+        <p class="categories_price"> {{product.price}}  <span class="tag">FCFA</span> <span class="init_price">{{product.price_init }} <span class="tag2">FCFA</span></span></p>
+      </ion-col>
+  </ion-row>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+  <ion-row >
+      <ion-col col-12 class="categories_item" (click)="goToProduct(product)" >
+        <div class="categories_picture" *ngIf="!product.picture"><img src="assets/img/no-pic.jpg"></div>
+        <div class="categories_picture" *ngIf="product.picture"><img src={{product.picture}}></div>
+        <h2>{{ (product.name | slice:0:35)+' ...' }} </h2>
+        <p class="categories_seller">Marque : <span class="seller_name">{{product.manufac | slice:0:8}}</span></p>
+        <p class="categories_price"> {{product.price}}  <span class="tag">FCFA</span> <span class="init_price">{{product.price_init }} <span class="tag2">FCFA</span></span></p>
+      </ion-col>
+  </ion-row>
+</div>

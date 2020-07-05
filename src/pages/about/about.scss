@@ -1,0 +1,36 @@
+page-about {
+  .about-page{
+    background: #f2f2f2;
+    text-align: center;
+    .about-inner{
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid rgba(192, 192, 192, 0.37);
+    }
+    .logo{
+      width: 100px;
+      margin: auto;
+    }
+    h1{
+      font-size: 3rem;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    p{
+      font-size: 1.4rem;
+      line-height: 22px;
+      color: #4e4b4b;
+      font-weight: 100;
+    }
+    .version, .birth-date, .right{
+      margin-bottom: 0px;
+      margin-top: 0px;
+      font-size: .9em;
+    }
+    .version{
+      color: #aaa9a9;
+      text-shadow: white !important;
+    }
+  }
+}

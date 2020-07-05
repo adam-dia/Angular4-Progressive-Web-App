@@ -1,0 +1,96 @@
+<!-- component SearchBox -->
+<!-- <ion-grid class= "search-box">
+    <form [formGroup]="rForm" (submit)="search(rForm.value)" >
+        <ion-list>
+              <ion-item col-11>
+                <ion-input type="text" formControlName="searchItem" placeholder="Que cherchez-vous ?"></ion-input>
+                <ion-label ></ion-label>
+              </ion-item>
+          </ion-list>
+        </form>
+    <button float-end hideWhen="ios"><ion-icon name="mic" (click)="start()"></ion-icon></button>
+</ion-grid> -->
+
+<div *ngIf="isPhone" class="phone">
+  <ion-grid class="search-box">
+    <form [formGroup]="rForm" (submit)="search(rForm.value)">
+      <ion-list *ngIf="!activeFoundProduct && !activeFoundShop">
+        <ion-item col-11>
+          <ion-input type="text" formControlName="searchItem" placeholder="Que cherchez-vous ?" (ionChange)="foundItem(rForm.value)">
+          </ion-input>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+      <!-- <ion-list class="activeFoundProducts"> -->
+      <ion-list *ngIf="activeFoundProduct || activeFoundShop" class="activeFoundProducts">
+        <ion-item col-11>
+          <ion-input type="text" formControlName="searchItem" placeholder="Que cherchez-vous ?" (ionChange)="foundItem(rForm.value)">
+          </ion-input>
+          <ion-label></ion-label>
+        </ion-item><a class="cancel-search" (click)="cancelSearch()">
+          <ion-icon name="close-circle"></ion-icon> Annuler
+        </a>
+      </ion-list>
+    </form>
+  </ion-grid>
+  <div class="result" *ngIf="startSearch">
+    <div *ngIf="activeFoundShop">
+      <h1>
+        Boutiques
+      </h1>
+      <p class="shop_in_shop" *ngFor="let shop of foundedShops">
+        <ion-icon name="list"></ion-icon> {{ shop.boutique }}
+      </p>
+      <!-- <p class="shop_in_shop">
+        <ion-icon name="list"></ion-icon> Nespresso
+      </p>
+      <p class="shop_in_shop">
+        <ion-icon name="list"></ion-icon> Nespresso
+      </p> -->
+    </div>
+    <div *ngIf="activeFoundProduct">
+      <h1>
+        Produits
+      </h1>
+      <ion-item class="cart_item" *ngFor="let product of products">
+        <ion-thumbnail item-start (click)="goToProduct(product)">
+          <img src={{product.picture}}>
+        </ion-thumbnail>
+        <h2 (click)="goToProduct(product)">{{ (product.name | slice:0:35)+' ...' }} </h2>
+        <p class="seller" (click)="goToProduct(product)"><span class="seller_name">{{product.price}} FCFA</span></p>
+      </ion-item>
+      <!-- <ion-item class="cart_item" (click)="goToProduct()">
+        <ion-thumbnail item-start>
+          <img src="https://www.yaatoo.ci/111-thickbox_default/nectar-d-orange-2l.jpg">
+        </ion-thumbnail>
+        <h2>Nectar orange 2 L Joker orange 2 L Joker</h2>
+        <p class="seller"><span class="seller_name">75 000 FCFA</span></p>
+      </ion-item> -->
+
+      <ion-item class="cart_all_item">
+        <button (click)="search(rForm.value)">Voir tous les produits ({{totalFound}})</button>
+      </ion-item>
+    </div>
+    <div *ngIf="activeNotFound">
+      <p class="no_result">Aucun produit disponible pour cette recherche</p>
+    </div>
+  </div>
+</div>
+
+<!-- Block for tablet -->
+
+<div *ngIf="isTablet" class="tablet">
+  <ion-grid class="search-box">
+    <form [formGroup]="rForm" (submit)="search(rForm.value)">
+      <ion-list>
+        <ion-item col-11>
+          <ion-input type="text" formControlName="searchItem" placeholder="Que cherchez-vous ?"></ion-input>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+    </form>
+    <button float-end hideWhen="ios">
+      <ion-icon name="mic" (click)="start()"></ion-icon>
+    </button>
+  </ion-grid>
+</div>

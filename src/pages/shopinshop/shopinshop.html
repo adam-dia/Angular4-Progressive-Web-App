@@ -1,0 +1,44 @@
+
+<ion-header>
+
+  <ion-navbar>
+   <ion-title>{{ shopName }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="ShopInShop" [ngStyle]="{'background':'url('+ shopBackground+')'}">
+
+<loader *ngIf="shopSpinner"></loader>
+
+<div class="mainContainerBloc">
+
+    <div class="sliders">
+          <ion-slides pager>
+
+              <ion-slide *ngFor="let slide of slider">
+                  <img src="{{ slide.slider}}">
+              </ion-slide>
+            </ion-slides>
+    </div>
+
+      <div class="MainProductDiv">
+      <ion-row col-5 *ngFor="let product of products" class="product-container">
+      <!-- <ion-row> -->
+        <ion-col col-12 [ngClass]="{'categories_item': product.price == product.price_init, 'categories_item_init_price': product.price != product.price_init}" (click)="goToProduct(product)" >
+          <div class="categories_picture" *ngIf="!product.picture"><img src="assets/img/no-pic.jpg"></div>
+          <div class="categories_picture" *ngIf="product.picture"><img src={{product.picture}}></div>
+          <h2>{{ (product.name | slice:0:35)+' ...' }} </h2>
+          <p class="categories_seller">Marque : <span class="seller_name">{{product.manufac | slice:0:25}}</span></p>
+          <p class="categories_price"> {{product.price}} FCFA </p>
+          <p class="second_init_price" *ngIf="product.price != product.price_init"> {{product.price_init}} FCFA</p>
+        </ion-col>
+      </ion-row>
+      </div>
+</div>
+
+
+  <!-- <div class="shopIn" [ngStyle]="{'background':' url(assets/img/shopin.png)'}"> -->
+
+  </ion-content>

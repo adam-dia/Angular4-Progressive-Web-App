@@ -1,0 +1,20 @@
+<!-- <ion-slides pager autoplay="2000" loop="true" speed="1000">
+    <ion-slide>
+      <img src={{slides.img_link}} alt="">
+    </ion-slide>
+
+</ion-slides> -->
+
+<div *ngIf="isPhone" class="phone">
+  <ion-slide>
+    <!-- <img src={{slides.img_link}} alt="" (click)="gotoCategorie(slides)"> -->
+    <ion-img style="height: 140px; width: 100%;" src={{slides.img_link}} (click)="gotoCategorie(slides)"></ion-img>
+  </ion-slide>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+  <ion-slide>
+    <!-- <img src={{slides.img_link}} (click)="gotoCategorie(slides)"> -->
+    <ion-img style="height: 320px; width: 100%;" src={{slides.img_link}} (click)="gotoCategorie(slides)"></ion-img>
+  </ion-slide>
+</div>

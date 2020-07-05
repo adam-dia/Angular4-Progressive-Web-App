@@ -1,0 +1,63 @@
+page-promotion {
+    .promotion_page {
+        .phone {
+            .filter {
+                background: white;
+                margin-bottom: 3px;
+
+                button {
+                    font-size: 17px;
+                    background: transparent !important;
+                }
+            }
+
+            .ariane {
+                border-top: 3px solid #f2f2f2;
+            }
+
+            .rotation {
+                transform: rotate(90deg) !important;
+                color: black;
+            }
+
+            .categorie_page {
+                background: #f2f2f2;
+            }
+
+            .item-md.item-block .item-inner,
+            .item-ios.item-block .item-inner {
+                border: none;
+            }
+
+            .err1 {
+                text-align: center;
+                margin-bottom: 30px;
+
+                img {
+                    max-width: 45%;
+                }
+            }
+
+            .err {
+                font-size: 14px;
+                width: 70%;
+                text-align: center;
+                margin: auto;
+                margin-top: -30px;
+                color: red;
+                line-height: 20px;
+            }
+
+            .ariane {
+                h3 {
+                    margin: 0px;
+                    font-size: .9em;
+                    margin: 7px;
+                    margin-left: 20px;
+                    font-weight: 600;
+                    color: #202020;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons col-4 range-left start class="annuler">
+          <button (click)="dissmissModal()">Annuler</button>
+        </ion-buttons>
+    <!-- <ion-title class="middle" middle col-4>Filtre</ion-title> -->
+    <ion-buttons col-4 end class="valider">
+      <button (click)="closeModal()">Appliquer</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="rForm">
+    <ion-grid>
+        <ion-row>
+          <ion-col col-4 class="selector">
+             <table>
+               <tr><td (click)="byBrand()">Marque</td></tr>
+               <tr><td (click)="byPrice()">Prix</td></tr>
+               <tr><td>Note </td></tr>
+               <tr><td>Discount</td></tr>
+             </table>
+          </ion-col>
+          <ion-col col-8 class="displayer">
+            <div class="contents" *ngIf="isBrand">
+              <p *ngFor="let b of brand" (click)="choseBrand(b)">
+                {{b}} <ion-icon name="checkmark"></ion-icon>
+              </p>
+            </div>
+            <div class="contents" *ngIf="isPrice">
+                <ion-item>
+                    <ion-range formControlName="price" (ionChange)="chosenPrice(rForm.value)" min={{rangeMin}} step=5 max={{rangeMax}} pin="true"color="secondary">
+                      <ion-icon range-left small name="md-cash"></ion-icon>
+                      <ion-icon range-right name="md-cash"></ion-icon>
+                    </ion-range>
+                  </ion-item>
+                  <!-- <ion-item>
+                      <ion-range dualKnobs="true" pin="true" [(ngModel)]="structure" color="dark">
+                        <ion-icon range-left small name="brush"></ion-icon>
+                        <ion-icon range-right name="brush"></ion-icon>
+                      </ion-range>
+                    </ion-item> -->
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </form>
+</ion-content>

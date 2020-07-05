@@ -1,0 +1,17 @@
+<loader *ngIf="showSpinner"></loader>
+
+<form [formGroup]="rForm">
+<ion-item class="cart_item">
+<!-- <ion-item class="cart_item" (click)="goToProduct(product)"> -->
+  <ion-thumbnail item-start (click)="goToProduct(product)">
+    <img src={{product.picture}}>
+  </ion-thumbnail>
+  <h2 (click)="goToProduct(product)">{{product.name}}</h2>
+  <p class="seller">Marque : <span class="seller_name" (click)="goToProduct(product)">{{product.manufac}}</span></p>
+  <p class="cart_quantity"><button ion-button class="quantity_ajust" (click)="dicrease(product)">-</button><input col-2 type="tel" class="quantity" formControlName="quantity" min=1 value={{product.quantity}} (change)="updateProduct(rForm.value,product)"> <button ion-button class="quantity_ajust" (click)="increase(product)">+</button> <span class="product_som">{{product.price*product.quantity}}</span>
+  <!-- <p class="cart_quantity"><button ion-button class="quantity_ajust" (click)="dicrease(product)">-</button><input col-2 type="tel" class="quantity" formControlName="quantity" min=1 value={{product.quantity}} (change)="updateProduct(rForm.value)"> <button ion-button class="quantity_ajust" (click)="increase(product)">+</button> <span class="product_som">{{product.price*product.quantity}}</span> -->
+  <span class="product_device">FCFA</span>
+  </p>
+<button ion-button clear item-end class="cart_delete" (mousedown)="removeProduct(product)"><ion-icon name="ios-trash"></ion-icon></button>
+</ion-item>
+</form>

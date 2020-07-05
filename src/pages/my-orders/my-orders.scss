@@ -1,0 +1,44 @@
+page-my-orders {
+  .orders-page{
+    background: #f2f2f2;
+    ion-grid {
+      padding: 0px;
+    }
+    p{
+      font-size: 1.2rem;
+      padding-left: 10px;
+      color: gray;
+      text-shadow: 0px 1px 0px white;
+    }
+  }
+  .order-header{
+    // background: white;
+    background: #ff4401;
+    margin-bottom: 0px !important;
+    height: 50px;
+    padding-top: 13px;
+    padding-left: 15px;
+    // border-bottom: 1px solid #d9d5d58e;
+
+    ion-col{
+      font-size: 1.3rem;
+      padding: 5px !important;
+      color: white;
+    }
+  }
+  .order-items{
+    background: white;
+    margin-bottom: 6px;
+    height: 50px;
+    padding-top: 13px;
+    .order-price{
+      font-weight: 600;
+      color: orangered;
+    }
+    ion-col{
+      font-size: 1.1rem;
+      color: rgb(102, 101, 101);
+      border-radius: 4px;
+    }
+  }
+}

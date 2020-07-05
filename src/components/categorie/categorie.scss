@@ -1,0 +1,20 @@
+categorie {
+  .categorie_item{
+    background-color: white;
+    text-align: center;
+    padding-top: 10px;
+    border-right: 7px solid #f2f2f2;
+  }
+  ._sub_item{
+    background-color: white;
+    text-align: center;
+    padding:0px;
+    border-right: 7px solid #f2f2f2;
+    margin-bottom: 7px;
+  }
+  ._title{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}

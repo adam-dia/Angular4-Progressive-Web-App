@@ -1,0 +1,274 @@
+search-bar {
+    .phone {
+        .activeFoundProducts {
+            // background: red;
+            .cancel-search {
+                position: absolute;
+                top: 8px;
+                right: 30px;
+                color: #484d67;
+                height: 40px;
+                line-height: 40px;
+            }
+        }
+        @-webkit-keyframes flipInX {
+            from {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+            40% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+            60% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+            }
+            80% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            }
+            to {
+                -webkit-transform: perspective(400px);
+                transform: perspective(400px);
+            }
+        }
+        @keyframes flipInX {
+            from {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+            40% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+                -webkit-animation-timing-function: ease-in;
+                animation-timing-function: ease-in;
+            }
+            60% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+                opacity: 1;
+            }
+            80% {
+                -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+                transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            }
+            to {
+                -webkit-transform: perspective(400px);
+                transform: perspective(400px);
+            }
+        }
+        .search-box {
+            background-image: url("../assets/img/search_back.png");
+            border-bottom: 2px solid #f2f2f2;
+            height: 60px;
+            padding-top: 5px;
+            .searchbar-md .searchbar-input {
+                padding: 3px 55px;
+            }
+            .searchbar-md {
+                margin-top: 10px;
+            }
+        }
+        ion-item {
+            height: 20px;
+            border: none;
+            margin: auto;
+            margin-top: 3px;
+            border-radius: 4px;
+        }
+        .list-ios>.item-block:last-child,
+        .list-ios>.item-wrapper:last-child .item-block {
+            margin: auto;
+            margin-top: 3px;
+            border-radius: 4px;
+            border: none;
+        }
+        .list-md .item-input:last-child {
+            border-bottom: none;
+            margin: auto;
+            margin-top: 2px;
+        }
+        button {
+            float: right !important;
+            background: transparent !important;
+            z-index: 200;
+            width: 30px;
+            position: absolute;
+            right: 30px;
+            top: 6px;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .result {
+            background: #f2f2f2;
+            position: fixed; // top: 0px;
+            z-index: 999;
+            height: 100%;
+            width: 100%;
+            -webkit-animation-name: flipInX;
+            animation-name: flipInX;
+            .no_result {
+                font-size: 1.1em;
+                text-align: center;
+                text-shadow: 0px 1px 0px white;
+            }
+            .shop_in_shop {
+                margin: 5px;
+                padding: 5px 0px 5px 20px;
+                background: #ffffff;
+            }
+            h1 {
+                margin-top: 0px;
+                font-size: 1.5rem;
+                margin-bottom: 6px !important;
+                background: #f9f9f9;
+                padding: 5px 5px 5px 10px;
+                color: #383737;
+                font-weight: 500;
+                box-shadow: 0px 2px 5px #e8e8e8;
+            }
+            .item-ios.item-block .item-inner,
+            .item-md.item-block .item-inner {
+                border: none !important;
+            }
+            .cart_all_item {
+                background: none !important;
+                border: none !important;
+                button {
+                    height: 15px;
+                    text-align: center;
+                    background: #e6e5e5 !important;
+                    line-height: -1px;
+                    height: 30px;
+                    line-height: 0px;
+                    font-size: .9em;
+                    width: 80%;
+                    text-shadow: 0px 1px 0px white;
+                    border-radius: 4px;
+                }
+            }
+        }
+        .cart_item {
+            margin-bottom: 7px;
+            padding: 10px;
+            height: 40px !important;
+            box-shadow: 0px 3px 7px #dedede;
+            ion-thumbnail {
+                img {
+                    // border: 2px solid red;
+                }
+            }
+            h2 {
+                font-size: 1.4rem; // margin-bottom: 5px;
+            }
+            ion-thumbnail {
+                height: 30px;
+                width: 30px;
+                overflow: hidden;
+                padding-top: 4px;
+                text-align: center;
+                img {
+                    width: 45px;
+                    height: 45px;
+                    margin: auto;
+                }
+            }
+            .seller {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+                font-weight: 200;
+                color: red;
+                font-weight: 500;
+            }
+            .cart_quantity {
+                font-weight: 200;
+                input[type=text] {
+                    border: none;
+                    border-bottom: 1px solid #e8e7e7;
+                    text-align: center;
+                }
+                .quantity_ajust {
+                    background: rgb(240, 239, 239);
+                    font-size: 1.5em;
+                    margin-top: -3px;
+                    margin-right: 6px;
+                    padding: 3px;
+                    color: black;
+                    font-weight: 500;
+                    height: 20px;
+                    width: 20px;
+                    z-index: 0;
+                }
+                .product_som,
+                .product_device {
+                    color: #f16723;
+                    font-weight: 400;
+                }
+                .product_device {
+                    color: #f16723;
+                    font-weight: 400;
+                    font-size: .7em;
+                }
+            }
+        }
+    }
+    .tablet {
+        .search-box {
+            background-image: url("../assets/img/search_back.png");
+            border-bottom: 2px solid #f2f2f2;
+            height: 80px;
+            padding-top: 7px;
+            .searchbar-md .searchbar-input {
+                padding: 3px 55px;
+            }
+            .searchbar-md {
+                margin-top: 10px;
+            }
+        }
+        ion-input {
+            font-size: 1.3em;
+        }
+        ion-item {
+            height: 60px;
+            border: none;
+            margin: auto;
+            margin-top: 3px;
+            border-radius: 4px;
+        }
+        .list-ios>.item-block:last-child,
+        .list-ios>.item-wrapper:last-child .item-block {
+            margin: auto;
+            margin-top: 3px;
+            border-radius: 4px;
+            border: none;
+        }
+        .list-md .item-input:last-child {
+            border-bottom: none;
+            margin: auto;
+            margin-top: 2px;
+        }
+        button {
+            float: right !important;
+            background: transparent !important;
+            z-index: 200;
+            width: 30px;
+            position: absolute;
+            right: 30px;
+            top: 6px;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+    }
+}

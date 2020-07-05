@@ -1,19 +1,603 @@
-<ion-menu [content]="content" type="overlay">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<div *ngIf="isPhone" class="phone">
+  <ion-menu [content]="content" class="Menu-Title">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title></ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+    <ion-content class="sideBar_menu" (click)="checker()">
+      <div *ngIf="pages != null">
 
-</ion-menu>
+        <div class="mainBloc" *ngIf="mainBloc">
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+          <ion-list>
+            <button menuClose ion-item (click)="showPopup()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="menu"></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Accueil </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button ion-item (click)="showMenu()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Toutes les catégories </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button menuClose ion-item (click)="goToPromotion()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="pricetags"></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Promotions </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button menuClose ion-item (click)="goToFidelity()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon ios="ios-filing" md="md-filing"></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Fidélité </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button ion-item (click)="showSpecialShop()" class="specialSelector">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="ios-bookmark" float-right></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Boutiques spécialisées </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+
+            <div *ngIf="specialShop">
+              <button menuClose *ngFor="let shop of shopInShop; let i = index" ion-item class="specialShop" (click)="goToShopInShop(shop)">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="ios-filing-outline" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> {{shop.boutique}} </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+
+            </div>
+
+            <button menuClose ion-item (click)="goToPayment()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="ios-card" float-right></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Paiements </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <!-- <button menuClose ion-item (click)="socialSharing()">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><ion-icon ios="ios-appstore" md="md-appstore"></ion-icon></ion-col>
+                        <ion-col col-10 ><span flaot-left> Partager l'Application </span></ion-col>
+                      </ion-row>
+                    </ion-grid>
+              </button> -->
+            <button menuClose ion-item (click)="goToCs()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="md-happy" float-right></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Service client </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+            <button menuClose ion-item (click)="goToCondition()">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-1>
+                    <ion-icon name="ios-information-circle"></ion-icon>
+                  </ion-col>
+                  <ion-col col-10><span flaot-left> Mentions légales </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </button>
+
+          </ion-list>
+
+        </div>
+
+        <!--*************** MENU ******************-->
+        <div *ngIf="diplayCat" class="diplayCat">
+          <h3 (click)="goBack()">
+            <ion-icon name="ios-arrow-back"></ion-icon>&nbsp; Menu principal
+          </h3>
+          <!-- <h3><ion-icon name="ios-arrow-back"></ion-icon>&nbsp;Choisir une catégories</h3> -->
+          <ion-list class="accordion-list">
+            <ion-list-header *ngFor="let p of pages; let i = index" no-lines no-padding>
+              <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active':p.open, 'section': !p.open}">
+                {{p.name}}
+                <ion-col col-1>
+                  <ion-icon name="ios-add-outline" *ngIf="!p.open" float-right></ion-icon>
+                </ion-col>
+                <ion-col col-1>
+                  <ion-icon name="md-remove" *ngIf="p.open" float-right></ion-icon>
+                </ion-col>
+              </button>
+
+              <ion-list *ngIf="p.children && p.open" no-lines>
+
+                <ion-list-header *ngFor="let child of p.children; let j = index" no-padding>
+
+                  <button ion-item *ngIf="child.children.length>1" (click)="toggleItem(i,j)" detail-none class="child-item">
+                    {{child.name}}
+                    <ion-col col-1>
+                      <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                      <ion-icon name="md-remove" *ngIf="child.open" float-right></ion-icon>
+                    </ion-col>
+                  </button>
+
+                  <button menuClose ion-item *ngIf="child.children.length<1" (click)="openPage(child)" detail-none
+                    class="child-item">
+                    {{child.name}}
+                    <ion-col col-1>
+                      <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                      <ion-icon name="md-remove" *ngIf="child.open" float-right></ion-icon>
+                    </ion-col>
+                  </button>
+
+                  <ion-list *ngIf="child.children && child.open" no-lines>
+                    <ion-list-header *ngFor="let chil of child.children; let j = index" no-padding>
+                      <button menuClose ion-item (click)="openPage(chil)" detail-none class="chil-item" *ngIf="chil.children">
+                        {{chil.name}}
+                        <ion-col col-1>
+                          <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                        </ion-col>
+                        <ion-col col-1>
+                          <ion-icon name="md-remove" *ngIf="chil.open" float-right></ion-icon>
+                        </ion-col>
+                      </button>
+                    </ion-list-header>
+                  </ion-list>
+
+
+                </ion-list-header>
+              </ion-list>
+
+            </ion-list-header>
+          </ion-list>
+        </div>
+
+        <!--*************** END MENU ******************-->
+
+
+      </div>
+      <div *ngIf="pages == null">
+        <p class="conn_error">
+          <img src="../assets/img/warn.png"> <br>
+          Verifiez votre connexion SVP !!!! <br>
+          <a (click)="getCategories()" class="reload">Actualisez</a>
+        </p>
+      </div>
+    </ion-content>
+
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+    <div *ngIf="pages != null">
+    <div class="popup_shop" *ngIf="selectShop">
+      <ion-grid class="popup">
+        <div >
+        <h2 class="top1">CHOISISSEZ VOTRE BOUTIQUE</h2>
+          <div class="mode-livraison">
+            <ion-list class="marketplace">
+              <ion-grid>
+
+                <ion-row>
+                  <ion-col col-6 (click)="chooseAbidjan()">
+                  <span flaot-left class="shop-logo"> <img src="assets/img/prima-2.png"> </span>
+                  <!---<span flaot-left class="shop-name"> CAP SUD </span> -->
+                  <div flaot-left class="shop-Location one-location"> Abidjan <br> uniquement </div>
+                  </ion-col>
+                  <ion-col col-6 (click)="chooseAbidjanNord()">
+                  <span flaot-left class="shop-logo"><img src="assets/img/sococe.png"> </span>
+                  <!---<span flaot-left class="shop-name"> SOCOCE </span>-->
+                  <div flaot-left class="shop-Location"> Abidjan • Bouaké • San-Pedro • Daloa • Yamoussoukro </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-list>
+          </div>
+        </div>
+
+        <!--<div *ngIf="activeCommune">
+          <h2 class="top1 goBack" (click)="goBackToTown()">
+            <ion-icon name="ios-arrow-back-outline"></ion-icon> Retour
+          </h2>
+          <div class="mode-livraison">
+            <ion-list>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Abobo </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Adjame </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Attecoube </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Bingerville </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Cocody </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Koumassi </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Marcory </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Plateau </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Port-Bouet </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Treichville </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Yopougon </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-list>
+          </div>
+        </div>-->
+
+        <!--<h2 class="top2">Retrait en Magasin</h2>-->
+        <!--<div class="retrait-mag">
+          <ion-list>
+            <p ion-item *ngFor="let shop of shops" (click)="chooseShop(shop)">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-10><span flaot-left>{{shop.name}}</span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </p>
+          </ion-list>
+        </div>-->
+
+      </ion-grid>
+    </div>
+  </div>
+
+  <!-- <div *ngIf="pages != null">
+    <div class="popup_shop" *ngIf="selectShop">
+      <ion-grid class="popup">
+        <div *ngIf="isAbidjan">
+          <h2 class="top1">Lieu de livraison</h2>
+          <div class="mode-livraison">
+            <ion-list>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12 (click)="activateCommune()"><span flaot-left> Abidjan </span></ion-col>
+                  <ion-col col-12 (click)="chooseInterior()"><span flaot-left> Bouaké </span></ion-col>
+                  <ion-col col-12 (click)="chooseInterior()"><span flaot-left> Daloa </span></ion-col>
+                  <ion-col col-12 (click)="chooseInterior()"><span flaot-left> San-Pedro </span></ion-col>
+                  <ion-col col-12 (click)="chooseInterior()"><span flaot-left> Yamoussokro </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-list>
+          </div>
+        </div>
+
+        <div *ngIf="activeCommune">
+          <h2 class="top1 goBack" (click)="goBackToTown()">
+            <ion-icon name="ios-arrow-back-outline"></ion-icon> Retour
+          </h2>
+          <div class="mode-livraison">
+            <ion-list>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Abobo </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Adjame </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Attecoube </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Bingerville </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Cocody </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Koumassi </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Marcory </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Plateau </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Port-Bouet </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjan()"><span flaot-left> Treichville </span></ion-col>
+                  <ion-col col-12 (click)="chooseAbidjanNord()"><span flaot-left> Yopougon </span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-list>
+          </div>
+        </div>
+
+        <h2 class="top2">Retrait en Magasin</h2>
+        <div class="retrait-mag">
+          <ion-list>
+            <p ion-item *ngFor="let shop of shops" (click)="chooseShop(shop)">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-10><span flaot-left>{{shop.name}}</span></ion-col>
+                </ion-row>
+              </ion-grid>
+            </p>
+          </ion-list>
+        </div>
+      </ion-grid>
+    </div>
+  </div> -->
+
+  <!-- ***************************** TABLET MENU ******************************** -->
+
+  <div *ngIf="isTablet" class="tablet">
+    <ion-menu [content]="content" class="Menu-Title">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title></ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="sideBar_menu">
+        <div *ngIf="pages != null">
+
+          <div class="mainBloc" *ngIf="mainBloc">
+
+            <ion-list>
+              <button menuClose ion-item (click)="showPopup()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="menu"></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Accueil </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <button ion-item (click)="showMenu()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Toutes les catégories </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <button menuClose ion-item (click)="goToPromotion()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="pricetags"></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Promotions </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <button menuClose ion-item (click)="goToFidelity()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon ios="ios-filing" md="md-filing"></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Fidélité </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <button ion-item (click)="showSpecialShop()" class="specialSelector">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="ios-bookmark" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Boutiques spécialisées </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+
+              <div *ngIf="specialShop">
+                <button menuClose *ngFor="let shop of shopInShop; let i = index" ion-item class="specialShop" (click)="goToShopInShop(shop)">
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-1>
+                        <ion-icon name="ios-filing-outline" float-right></ion-icon>
+                      </ion-col>
+                      <ion-col col-10><span flaot-left> {{shop.boutique}} </span></ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </button>
+
+              </div>
+
+              <button menuClose ion-item (click)="goToPayment()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="ios-card" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Paiements </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <!-- <button menuClose ion-item (click)="socialSharing()">
+                  <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><ion-icon ios="ios-appstore" md="md-appstore"></ion-icon></ion-col>
+                        <ion-col col-10 ><span flaot-left> Partager l'Application </span></ion-col>
+                      </ion-row>
+                    </ion-grid>
+              </button> -->
+              <button menuClose ion-item (click)="goToCs()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="md-happy" float-right></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Service client </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+              <button menuClose ion-item (click)="goToCondition()">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-1>
+                      <ion-icon name="ios-information-circle"></ion-icon>
+                    </ion-col>
+                    <ion-col col-10><span flaot-left> Mentions légales </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </button>
+
+            </ion-list>
+
+          </div>
+
+          <!--*************** MENU ******************-->
+          <div *ngIf="diplayCat" class="diplayCat">
+            <h3 (click)="goBack()">
+              <ion-icon name="ios-arrow-back"></ion-icon>&nbsp; Menu principal
+            </h3>
+            <!-- <h3><ion-icon name="ios-arrow-back"></ion-icon>&nbsp;Choisir une catégories</h3> -->
+            <ion-list class="accordion-list">
+              <ion-list-header *ngFor="let p of pages; let i = index" no-lines no-padding>
+                <button ion-item (click)="toggleSection(i)" detail-none [ngClass]="{'section-active':p.open, 'section': !p.open}">
+                  {{p.name}}
+                  <ion-col col-1>
+                    <ion-icon name="ios-add-outline" *ngIf="!p.open" float-right></ion-icon>
+                  </ion-col>
+                  <ion-col col-1>
+                    <ion-icon name="md-remove" *ngIf="p.open" float-right></ion-icon>
+                  </ion-col>
+                </button>
+
+                <ion-list *ngIf="p.children && p.open" no-lines>
+
+                  <ion-list-header *ngFor="let child of p.children; let j = index" no-padding>
+
+                    <button ion-item *ngIf="child.children.length>1" (click)="toggleItem(i,j)" detail-none class="child-item">
+                      {{child.name}}
+                      <ion-col col-1>
+                        <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                      </ion-col>
+                      <ion-col col-1>
+                        <ion-icon name="md-remove" *ngIf="child.open" float-right></ion-icon>
+                      </ion-col>
+                    </button>
+
+                    <button menuClose ion-item *ngIf="child.children.length<1" (click)="openPage(child)" detail-none
+                      class="child-item">
+                      {{child.name}}
+                      <ion-col col-1>
+                        <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                      </ion-col>
+                      <ion-col col-1>
+                        <ion-icon name="md-remove" *ngIf="child.open" float-right></ion-icon>
+                      </ion-col>
+                    </button>
+
+                    <ion-list *ngIf="child.children && child.open" no-lines>
+                      <ion-list-header *ngFor="let chil of child.children; let j = index" no-padding>
+                        <button menuClose ion-item (click)="openPage(chil)" detail-none class="chil-item" *ngIf="chil.children">
+                          {{chil.name}}
+                          <ion-col col-1>
+                            <ion-icon name="ios-add-outline" *ngIf="!child.open" float-right></ion-icon>
+                          </ion-col>
+                          <ion-col col-1>
+                            <ion-icon name="md-remove" *ngIf="chil.open" float-right></ion-icon>
+                          </ion-col>
+                        </button>
+                      </ion-list-header>
+                    </ion-list>
+
+
+                  </ion-list-header>
+                </ion-list>
+
+              </ion-list-header>
+            </ion-list>
+          </div>
+
+          <!--*************** END MENU ******************-->
+
+
+        </div>
+        <div *ngIf="pages == null">
+          <p class="conn_error">
+            <img src="assets/img/warn.png" alt=""> <br>
+            Verifiez votre connexion SVP !!!! <br>
+            <a (click)="getCategories()" class="reload">Actualisez</a>
+          </p>
+        </div>
+      </ion-content>
+    </ion-menu>
+
+    <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+    <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+
+    <div *ngIf="pages != null">
+      <div class="popup_shop" *ngIf="selectShop">
+        <ion-grid class="popup">
+          <h2 class="top1">Lieu de livraison</h2>
+          <div class="mode-livraison">
+            <ion-list>
+              <p menuClose ion-item *ngFor="let deliver of delivery" (click)="chooseShop(deliver)">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-10><span flaot-left> {{deliver.name}} </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </p>
+            </ion-list>
+          </div>
+          <h2 class="top2">Retrait en Magasin</h2>
+          <div class="retrait-mag">
+            <ion-list>
+              <p ion-item *ngFor="let shop of shops" (click)="chooseShop(shop)">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-10><span flaot-left>{{shop.name}}</span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </p>
+            </ion-list>
+          </div>
+        </ion-grid>
+      </div>
+    </div>
+
+    <!-- <div *ngIf="pages != null">
+      <div class="popup_shop" *ngIf="selectShop">
+        <ion-grid class="popup">
+          <h2 class="top1">Lieu de livraison</h2>
+          <div class="mode-livraison">
+            <ion-list>
+              <p menuClose ion-item *ngFor="let deliver of delivery" (click)="chooseShop(deliver)">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-10><span flaot-left> {{deliver.name}} </span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </p>
+            </ion-list>
+          </div>
+          <h2 class="top2">Retrait en Magasin</h2>
+          <div class="retrait-mag">
+            <ion-list>
+              <p ion-item *ngFor="let shop of shops" (click)="chooseShop(shop)">
+                <ion-grid>
+                  <ion-row>
+                    <ion-col col-10><span flaot-left>{{shop.name}}</span></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </p>
+            </ion-list>
+          </div>
+        </ion-grid>
+      </div>
+    </div> -->
+
+  </div>

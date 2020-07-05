@@ -1,0 +1,14 @@
+
+<!-- <div class="delivery">
+    <img src={{banner.banner}} alt="">
+</div> -->
+<div *ngIf="isPhone" class="phone">
+    <div class="delivery">
+        <img src={{banner.banner}} alt="">
+    </div>
+</div>
+<div *ngIf="isTablet" class="tablet">
+    <div class="delivery">
+        <img src={{banner.banner}} alt="">
+    </div>
+</div>

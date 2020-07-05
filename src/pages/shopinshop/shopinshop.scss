@@ -1,0 +1,115 @@
+page-shopinshop {
+    .ShopInShop {
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat !important;
+        .mainContainerBloc {
+            .sliders {
+                height: 140px; // background: red;
+            }
+            .MainProductDiv {
+                // background: red;
+                padding: 15px;
+                padding-top: 0px;
+                width: 100%;
+                .product-container {
+                    height: 270px !important;
+                    background: white; // border: 3px solid #f2f2f2;
+                    margin: 5px;
+                    padding: 10px;
+                    float: left;
+                    padding-bottom: 10px;
+                    position: relative;
+                    left: 20px;
+                    .categories_picture {
+                        background: url('../assets/img/loader.gif') center;
+                        background-size: 100px;
+                        background-repeat: no-repeat; // height: 157px;
+                    }
+                    h2 {
+                        font-size: 1.2rem;
+                        margin-bottom: 0px;
+                        margin: 0px;
+                        margin-top: 15px;
+                        margin-bottom: 7px;
+                        font-weight: 400;
+                        height: 27px;
+                    }
+                    .categories_seller {
+                        margin: 0px;
+                        font-size: 1.2rem;
+                        font-weight: 200;
+                        margin-top: 22px;
+                    }
+                    .categories_price {
+                        color: #f16722;
+                        font-weight: 500;
+                        margin-top: 7px;
+                    }
+                    .second_init_price {
+                        width: 60px;
+                        font-size: .9em;
+                        color: #ada9a9;
+                        text-decoration: line-through;
+                        margin-left: 0px;
+                    }
+                }
+            }
+        } // background: red;
+        // background: url('../assets/img/shopin.jpg');
+        // background-size: cover;
+        // -webkit-background-size : cover;
+        // overflow: scroll;
+        // .shopIn {
+        //     height: 100%;
+        //     background-size: contain;
+        //     background-attachment: scroll !important;
+        //     .bground {
+        //         position: relative;
+        //         background: transparent !important;
+        //         .sliders {
+        //             background: transparent !important;
+        //             position: absolute;
+        //             height: 143px;
+        //             width: 100%;
+        //             top: 0;
+        //             ion-slides {
+        //                 width: 100%;
+        //             }
+        //         }
+        //         .content {
+        //             background: transparent !important;
+        //             position: absolute;
+        //             height: 198px;
+        //             width: 100%;
+        //             top: 13%;
+        //             img {
+        //                 margin-right: 5px;
+        //             }
+        //         }
+        //         .middle {
+        //             background: transparent !important;
+        //             position: absolute;
+        //             height: auto;
+        //             width: 100%;
+        //             top: 31%;
+        //         }
+        //         .bottom-content {
+        //             background: transparent !important;
+        //             position: absolute;
+        //             height: 550px !important;
+        //             overflow-y: scroll !important;
+        //             width: 92%;
+        //             top: 37%;
+        //             margin-left: 10%;
+        //             ion-grid {
+        //                 padding: 0px !important;
+        //                 ion-col {
+        //                     padding: 2px !important;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+}

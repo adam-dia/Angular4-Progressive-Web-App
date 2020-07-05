@@ -1,0 +1,40 @@
+<!-- <button ion-button menuToggle>
+  <ion-icon name="menu"></ion-icon>
+</button> -->
+
+<div *ngIf="isPhone" class="phone" (click)="verifyShop($event)">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+</div>
+
+<!--<div class="popup_shop" *ngIf="activeSelector">
+      <ion-grid class="popup">
+        <div >
+        <h2 class="top1">CHOISISSEZ VOTRE BOUTIQUE</h2>
+          <div class="mode-livraison">
+            <ion-list class="marketplace">
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-6 (click)="chooseAbidjan()">
+                  <span flaot-left class="shop-logo"> <img src="assets/img/cap-sud.png"> </span>
+                  <span flaot-left class="shop-name"> CAP SUD </span>
+                  <div flaot-left class="shop-Location one-location"> Abidjan <br> uniquement </div>
+                  </ion-col>
+                  <ion-col col-6 (click)="chooseAbidjanNord()">
+                  <span flaot-left class="shop-logo"><img src="assets/img/sococe.png"> </span>
+                  <span flaot-left class="shop-name"> SOCOCE </span>
+                  <div flaot-left class="shop-Location"> Abidjan • Bouaké • San-Pedro • Daloa • Yamoussoukro </div>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-list>
+          </div>-->
+
+
+<div *ngIf="isTablet" class="tablet" (click)="verifyShop($event)">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+</div>
+

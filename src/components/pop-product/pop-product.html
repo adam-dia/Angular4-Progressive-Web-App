@@ -1,0 +1,32 @@
+<!-- <ion-grid>
+    <ion-row>
+      <ion-col class="promo_item" (click)="goToProductDetail(popProds)">
+        <div class="promo_title"> <h2>{{popProds.manufac}}</h2> </div>
+        <div class="promo_picture"><img src={{popProds.picture}} alt=""></div>
+        <div class="promo_price">{{popProds.price}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+<div *ngIf="isPhone" class="phone">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="promo_item" (click)="goToProductDetail(popProds)">
+        <div class="promo_title"> <h2>{{popProds.manufac}}</h2> </div>
+        <div class="promo_picture"><img src={{popProds.picture}} alt=""></div>
+        <div class="promo_price">{{popProds.price}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<div *ngIf="isTablet" class="tablet">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="promo_item" (click)="goToProductDetail(popProds)">
+        <div class="promo_title"> <h2>{{popProds.manufac}}</h2> </div>
+        <div class="promo_picture"><img src={{popProds.picture}} alt=""></div>
+        <div class="promo_price">{{popProds.price}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

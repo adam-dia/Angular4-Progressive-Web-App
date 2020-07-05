@@ -1,0 +1,50 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Paramètre</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="account-page">
+  <loader *ngIf="showSpinner"></loader>
+
+  <h2>{{(name | slice:0:1)+'.'}}{{lastname}}</h2>
+    <ion-grid>
+        <!-- <ion-row>
+          <ion-col col-6 class="ajuste">Ma photo</ion-col>
+          <ion-col col-6><ion-icon name="ios-contact" float-right class="user-photo"></ion-icon></ion-col>
+        </ion-row> -->
+        <ion-row>
+          <ion-col col-12><b>Mail: </b>{{mail}}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-8 (click)="passwordChanger()">Changer de mot de passe</ion-col>
+          <ion-col col-4> <button float-right><ion-icon name="ios-key"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+        <ion-row (click)="goToDelivery()">
+          <ion-col col-8>Adresse </ion-col>
+          <ion-col col-4> <button float-right ><ion-icon name="ios-arrow-forward"></ion-icon></button>
+          </ion-col>
+        </ion-row>
+        <div class="address" *ngIf="showAddress">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+                <b>Ville: </b><br>
+                <b>Commune: </b><br>
+                <b>Téléphone: </b><br>
+            </ion-col>
+            <ion-col col-6>
+                {{city}} <br>
+                {{address}} <br>
+                {{phone}} <br>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        </div>
+      </ion-grid>
+</ion-content>

@@ -1,0 +1,256 @@
+<ion-header>
+
+    <!-- <ion-navbar>
+      <ion-title>Catégorie</ion-title>
+    </ion-navbar> -->
+    <ion-navbar class="ion-before">
+        <header></header>
+    </ion-navbar>
+
+  </ion-header>
+
+  <ion-content class="categorie_page">
+
+    <div *ngIf="isPhone" class="phone">
+      <search-bar></search-bar>
+      <!-- <filter></filter> -->
+
+      <div *ngIf="isNormal">
+        <ion-row class="filter">
+          <ion-col col-6>
+            <ion-item >
+              <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filtre</button>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+              <ion-select interface="action-sheet">
+                <!-- <ion-option value="new" (ionSelect)="sortByNew()">Nouveautés</ion-option> -->
+                <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <loader *ngIf="showSpiner"></loader>
+
+        <div *ngIf="id_category">
+
+          <div class="ariane">
+              <h3>Vous êtes ici > {{category_name}}</h3>
+          </div>
+          <loader *ngIf="showSpiner"></loader>
+
+          <categori-items *ngFor="let product of products" [product]= "product" ></categori-items>
+        </div>
+      </div>
+
+
+      <!-- Search Part -->
+      <div *ngIf="isSearcher">
+          <ion-row class="filter">
+              <ion-col col-6>
+                <ion-item >
+                  <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filter</button>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                  <ion-select interface="action-sheet">
+                    <!-- <ion-option value="new" (ionSelect)="sortByNew()">Nouveautés</ion-option> -->
+                    <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                    <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        <div class="ariane">
+            <h3>Vous avez cherché > {{q}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <categori-items *ngFor="let product of products" [product]= "product"></categori-items>
+      </div>
+
+      <!-- <div *ngIf="!isSearcher || || !isNormal"> -->
+      <div *ngIf="isPromoter">
+          <ion-row class="filter">
+              <ion-col col-6>
+                <ion-item >
+                  <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filtre</button>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                  <ion-select interface="action-sheet">
+                    <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                    <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        <div class="ariane">
+            <h3>Vous êtes ici > {{promoName}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <category-item *ngFor="let product of promoProds" [product]= "product"></category-item>
+      </div>
+
+      <!-- Slider manufacturer bloc -->
+      <div *ngIf="isManufacturer">
+          <ion-row class="filter">
+              <ion-col col-6>
+                <ion-item >
+                  <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filtre</button>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                  <ion-select interface="action-sheet">
+                    <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                    <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        <div class="ariane">
+            <h3>Vous êtes ici > {{promoName}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <manufac-items *ngFor="let product of manuProds" [product]= "product"></manufac-items>
+      </div>
+
+      <!-- *************************** -->
+      <!-- <div *ngIf="!id_category">
+        <p class="err1"><img src="assets/img/network.png" alt=""></p>
+        <p class="err">Impossible de chargée les donnée verifiez votre connexion internet</p>
+      </div>-->
+    </div>
+
+    <!-- ************************* TABLET BLOC ******************************* -->
+
+    <div *ngIf="isTablet" class="tablet">
+      <search-bar></search-bar>
+      <!-- <filter></filter> -->
+
+      <div *ngIf="isNormal">
+        <ion-row class="filter">
+          <ion-col col-6>
+            <ion-item >
+              <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filter</button>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item>
+              <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+              <ion-select interface="action-sheet">
+                <!-- <ion-option value="new" (ionSelect)="sortByNew()">Nouveautés</ion-option> -->
+                <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <loader *ngIf="showSpiner"></loader>
+
+        <div *ngIf="id_category">
+
+          <div class="ariane">
+              <h3>Vous êtes ici > {{category_name}}</h3>
+          </div>
+          <loader *ngIf="showSpiner"></loader>
+
+          <categori-items *ngFor="let product of products" [product]= "product" ></categori-items>
+        </div>
+      </div>
+
+
+      <!-- Search Part -->
+      <div *ngIf="isSearcher">
+          <ion-row class="filter">
+              <ion-col col-6>
+                <ion-item >
+                  <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filter</button>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                  <ion-select interface="action-sheet">
+                    <!-- <ion-option value="new" (ionSelect)="sortByNew()">Nouveautés</ion-option> -->
+                    <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                    <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        <div class="ariane">
+            <h3>Vous avez cherché > {{q}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <categori-items *ngFor="let product of products" [product]= "product"></categori-items>
+      </div>
+
+       <!-- Slider manufacturer bloc -->
+       <div *ngIf="isManufacturer">
+        <ion-row class="filter">
+            <ion-col col-6>
+              <ion-item >
+                <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filtre</button>
+              </ion-item>
+            </ion-col>
+            <ion-col col-6>
+              <ion-item>
+                <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                <ion-select interface="action-sheet">
+                  <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                  <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        <div class="ariane">
+            <h3>Vous êtes ici > {{promoName}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <manufac-items *ngFor="let product of manuProds" [product]= "product"></manufac-items>
+      </div>
+
+      <!-- <div *ngIf="!isSearcher || || !isNormal"> -->
+      <div *ngIf="isPromoter">
+          <ion-row class="filter">
+              <ion-col col-6>
+                <ion-item >
+                  <button (click)="openFilter()"><ion-icon name="ios-funnel-outline"></ion-icon> filter</button>
+                </ion-item>
+              </ion-col>
+              <ion-col col-6>
+                <ion-item>
+                  <ion-label style="color:black;"><ion-icon name="ios-swap" class="rotation"></ion-icon> Trier</ion-label>
+                  <ion-select interface="action-sheet">
+                    <ion-option value="asc" (ionSelect)="sortBypriceAsc()">Prix croissant</ion-option>
+                    <ion-option value="desc" (ionSelect)="sortBypriceDesc()">Prix décroissant</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+        <div class="ariane">
+            <h3>Vous êtes ici > {{promoName}}</h3>
+        </div>
+        <loader *ngIf="showSpiner"></loader>
+        <category-item *ngFor="let product of promoProds" [product]= "product"></category-item>
+      </div>
+
+      <!-- *************************** -->
+      <!-- <div *ngIf="!id_category">
+        <p class="err1"><img src="assets/img/network.png" alt=""></p>
+        <p class="err">Impossible de chargée les donnée verifiez votre connexion internet</p>
+      </div>-->
+    </div>
+
+  </ion-content>

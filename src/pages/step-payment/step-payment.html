@@ -1,0 +1,121 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>stepPayment</ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="StepPaymentPage">
+    <div class="confirm">
+        <p>
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-3>
+                      <a><ion-icon name="ios-person-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Connexion</span> </a>
+                  </ion-col>
+                  <ion-col col-3 >
+                      <a><ion-icon name="ios-paper-plane-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Adresse</span> </a>
+                  </ion-col >
+                  <ion-col col-3 >
+                      <a><ion-icon name="ios-calendar-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Date</span> </a>
+                  </ion-col>
+                  <ion-col col-3 class="address">
+                      <a><ion-icon name="ios-card-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Paiement</span> </a>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </p>
+      </div>
+
+      <loader *ngIf="showSpinner"></loader>
+
+      <h4 class="blocTitle">Mode de Paiement</h4>
+
+      <form [formGroup]= "rForm" class="formular">
+
+                  <ion-list radio-group formControlName="payement" >
+                    <ion-item >
+                        <ion-label><img src="assets/img/cash.png" class="pay_img">&nbsp; Cash au Retrait</ion-label>
+                        <ion-radio value="Cash au Retrait" (ionSelect)="cashOnDelivery()"></ion-radio>
+                    </ion-item>
+                    <div class="cash" *ngIf="isCash">
+                      <p class="drop_down">
+                        Payer en espèce à la livraison. <br>
+                        Le paiement se fait directement auprès du livreur.
+                      </p>
+                    </div>
+                    <ion-item>
+                        <ion-label><img src="assets/img/om.png" class="pay_img">&nbsp; Orange Mobile Money</ion-label>
+                        <ion-radio value="OrangeMoney" (ionSelect)="orangeMoney()" ></ion-radio>
+                    </ion-item>
+                    <div class="cash" *ngIf="isOrange">
+                        <div class="drop_down">
+                         Payer vos achats avec <b>Orange Money</b><br>
+                         Vous devez pour celà obtenir un code de paiement utilisable pendant 5 minutes. <br>
+                         Composez le <b>#144*621#</b>. Conservez le code d'autorisation recu par SMS.
+                         Il vous sera demandez pour regler votre commande par la suite. Le non respect
+                         de votre procédure entraînera l'annulation de votre commande, le paiement
+                         via orange money est 100% sécurisé.<br>
+                         <p class="warning" col-12>
+                            <b>NB: </b>Cliquer sur le boutton <b>"TERMINER"</b> afin de valider votre commande<br>
+                            sans quoi elle ne sera pas valider.
+                         </p>
+                         <button ion-button class="orange_btn" (click)="payOrange()">Payer par Orange Money</button>
+                        </div>
+                      </div>
+
+                    <ion-item>
+                        <ion-label><img src="assets/img/cb.png" class="pay_img">&nbsp; Carte Bancaire</ion-label>
+                        <ion-radio value="CardPayment" (ionSelect)="cartPayment()" ></ion-radio>
+                    </ion-item>
+                    <div class="cash" *ngIf="isCb">
+                        <div class="drop_down">
+                         Payer vos achats par <b>Carte Bancaire</b><br>
+                         Le paiement par carte bancaire est <b>100% sécurisé.</b><br>
+                         Notez également que yaatoo ne conserve aucune donnée relative à votre carte bancaire, <br>
+                         ou sur vos transactions bancaires.
+
+                         <p class="warning" col-12>
+                          <b>NB: </b>Cliquer sur le boutton <b>"TERMINER"</b> afin de valider votre commande<br>
+                          sans quoi elle ne sera pas valider.
+                        </p>
+                         <button ion-button class="orange_btn" (click)="payCart()">Payer par carte</button>
+                        </div>
+                      </div>
+
+                  </ion-list>
+
+                <!-- </ion-list> -->
+        </form>
+</ion-content>
+
+<form [formGroup]= "rForm">
+    <div class="confirm_button">
+        <ion-grid class="confirm_action">
+            <ion-row class="discount">
+                <ion-col col-8 class="discountText">
+                    <ion-input type="text" formControlName="discount" placeholder="Entrez votre code de reduction"></ion-input>
+                </ion-col>
+                <ion-col col-4 class="discountButton">
+                    <button ion-button (click)="applyDiscount(rForm.value)">Appliquer</button>
+                </ion-col>
+              </ion-row>
+            <ion-row>
+                <ion-col col-6 class="global_total">
+                  <ion-col class="global_title">Total: <br>
+                  <span class="global_price"> {{totalAmount}} FCFA</span>
+                  </ion-col>
+                </ion-col>
+                <!-- <ion-col col-6><button ion-button color="btn-orange" *ngIf="isCash" col-11 (click)="confirmOrder(rForm.value)" [disabled]="!rForm.valid">Valider</button></ion-col> -->
+            </ion-row>
+            <ion-row>
+                <ion-col col-12><button ion-button color="btn-orange" *ngIf="isCash" col-12 (click)="confirmOrder(rForm.value)" > Valider </button></ion-col>
+                <!-- <ion-col col-12><button ion-button color="btn-orange" col-12 [disabled]="!rForm.valid"> Passez à la date </button></ion-col> -->
+            </ion-row>
+      </ion-grid>
+    </div>
+
+  </form>

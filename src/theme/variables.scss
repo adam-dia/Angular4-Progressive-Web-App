@@ -38,9 +38,17 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  // btn-orange: #f16723,
+  btn-orange: orangered,
+  btn-blue : #111939,
+  background : #f2f2f2
 );
+$toast-md-background:transparent !important;
+// $toast-md-title-color: white;
 
+$toast-ios-background:	transparent !important;
+// $toast-ios-title-color: white;
 
 // App iOS Variables
 // --------------------------------------------------

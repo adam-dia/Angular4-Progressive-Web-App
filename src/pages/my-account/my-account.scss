@@ -1,0 +1,44 @@
+page-my-account {
+  .account-page{
+    background: #f2f2f2;
+  }
+  .user-infos {
+    background: white;
+    // margin-top: 10px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(192, 192, 192, 0.41);
+    padding-left: 20px;
+    .username{
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    .user-mail{
+      color: gray;
+      font-size: 1.2rem;
+    }
+    .user-icon{
+      font-size: 4rem;
+      // color: rgba(192, 192, 192, 0.45);
+      color: gray;
+    }
+  }
+  .list-ios > .item-block:first-child, .list-ios > .item-block:last-child, .list-ios > .item-wrapper:last-child .item-block{
+    border: none;
+  }
+  .list-ios .item-block .item-inner, .list-md .item-block .item-inner{
+    border: none !important;
+  }
+  ion-list{
+    ion-item{
+      border: none;
+      margin-bottom: 6px !important;
+      font-size: 1.4rem !important;
+      color: #545353 !important;
+      cursor: pointer !important;
+    }
+  }
+  .logout{
+    margin-top: 0px;
+    background-color: orangered;
+  }
+}

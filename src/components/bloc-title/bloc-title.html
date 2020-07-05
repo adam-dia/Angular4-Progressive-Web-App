@@ -1,0 +1,15 @@
+<!-- <div class="deals-title">
+    <h2><ion-icon name="pricetags"></ion-icon> Deals de la semaine</h2>
+</div> -->
+
+<div *ngIf="isPhone" class="phone">
+    <div class="deals-title">
+        <h2><ion-icon name="pricetags"></ion-icon> Deals de la semaine</h2>
+    </div>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+    <div class="deals-title">
+        <h2><ion-icon name="pricetags"></ion-icon> Deals de la semaine</h2>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+<ion-header>
+
+      <ion-navbar>
+        <!-- <ion-title>Suggestion de l'App</ion-title> -->
+      </ion-navbar>
+
+    </ion-header>
+
+    <ion-content padding class="suggestion-page">
+      <h2>Suggestion de l'App</h2>
+      <p>Signaler un bug, un crash , aidez nous à ameliorer notre app en
+        nous faisans des propositions</p>
+
+        <ion-list>
+
+            <ion-item>
+                <ion-label>Objet </ion-label>
+                <ion-select [(ngModel)]="os" submitText="Okay" cancelText="Nah">
+                  <ion-option value="dos">Signaler un bug</ion-option>
+                  <ion-option value="lunix">Demander une fonctionnalité</ion-option>
+                </ion-select>
+              </ion-item>
+
+              <ion-item>
+                <textarea col-12></textarea>
+              </ion-item>
+
+        </ion-list>
+
+        <div col-12>
+          <button ion-button color="btn-orange" col-12>Soumettre</button>
+        </div>
+
+    </ion-content>

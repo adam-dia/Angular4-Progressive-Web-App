@@ -1,0 +1,185 @@
+page-cart-login {
+  .CartLoginPage {
+    background: #f2f2f2;
+    // background: #373447;
+    // background-image: url("../assets/img/account.png");
+    // background: url('../assets/img/fullsize.jpeg') fixed center;
+    background-size:cover;
+    filter: grayscale(.06);
+    -moz-filter: grayscale(.06);
+    -webkit-filter: grayscale(.06);
+  }
+  .login_logo{
+    text-align: center;
+    font-size: 11rem;
+    margin-top: 20%;
+    color: white;
+    h2{
+      font-size: 1.9pc;
+      font-weight: 400;
+      margin-bottom: 15px;
+    }
+  }
+  .confirm {
+    margin-bottom: 30px;
+    .address {
+      border-bottom: 4px solid orangered;
+    }
+    font-weight: 200;
+    margin-top: 0px;
+    p{
+      background: #ffffff;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      height: 65px;
+      border-bottom: 1px solid #efeded;
+    }
+    ion-col {
+      height: 61px;
+      text-align: center;
+      a{
+        color: black;
+        text-decoration: none;
+        font-weight: 400;
+
+        ion-icon {
+          font-size: 1.3em;
+          margin-bottom: 3px;
+        }
+        span {
+          font-size: .9em;
+        }
+      }
+    }
+  }
+  .blocTitle {
+    font-size: 1.2em;
+    margin-left: 20px;
+    font-weight: 300;
+    color: gray;
+    text-shadow: 0px 1px 0px white;
+  }
+  .height-ajust {
+    ion-item {
+      height: 55px;
+    }
+  }
+
+
+  // ********************************************
+  .list-ios .item-block .item-inner{
+    border: 0px;
+  }
+  .login_form{
+    background: rgba(255, 255, 255, 1);
+    // box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.30);
+    margin: auto !important;
+    padding-top: 40px;
+    // border-radius: 4px;
+    height: 80% !important;
+
+    ion-list{
+      position: relative;
+      text-align: center;
+      top: 0px;
+      ion-item{
+        margin: auto;
+        margin-bottom: 0px;
+        background: transparent;
+        border: 0px !important;
+        border-bottom: 2px solid white !important;
+        color: #151527 !important;
+        border: 1px solid rgba(133, 49, 17, 0.44) !important;
+        margin-bottom: 10px;
+        border-radius: 4px;
+      }
+    }
+  }
+  .form_validate{
+    position: relative;
+    top: 10px;
+    text-align: center;
+    button{
+      background: #ff6600;
+      border: none;
+      color: white;
+      height: 40px;
+    }
+  }
+  .suscribe{
+    position: relative;
+    color: black;
+    top: 10px;
+    text-align: center;
+    button{
+      background: transparent;
+      color: #ff6600;
+      font-size: 1.3rem;
+      text-decoration: underline;
+    }
+  }
+  .list-ios{
+    margin: -1px 0 20px;
+  }
+  .page-title{
+    background: white;
+    position: relative;
+    top: 0px;
+    padding: 0px 10px;
+    border: 1px solid silver;
+    height: 30px;
+    p{
+      line-height: 3px;
+    }
+  }
+  .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+    border-bottom-color: transparent;
+    -webkit-box-shadow: transparent !important;
+    box-shadow: transparent;
+  }
+  .res{
+    background: red;
+    text-align: center;
+    padding: 10px;
+  }
+  @keyframes shake {
+    from,
+    to {
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      -webkit-transform: translate3d(-10px, 0, 0);
+      transform: translate3d(-10px, 0, 0);
+    }
+
+    20%,
+    40%,
+    60%,
+    80% {
+      -webkit-transform: translate3d(10px, 0, 0);
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+  .logErr{
+    display: block;
+    margin: auto;
+    background: linear-gradient(#f05b5b, red);
+    text-align: center;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-top: -3px;
+    border-radius: 4px;
+    animation: shake 1s;
+    p{
+      height: 20px;
+      margin: 0px;
+      color: white;
+    }
+  }
+}

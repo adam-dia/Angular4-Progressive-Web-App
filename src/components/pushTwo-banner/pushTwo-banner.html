@@ -1,0 +1,17 @@
+<!-- <div class="delivery">
+    <img src={{lastBan.banner}} alt="">
+</div> -->
+<!-- <div class="delivery">
+    <img src="assets/img/deliver2.png" alt="">
+</div> -->
+
+<div *ngIf="isPhone" class="phone">
+  <div class="delivery">
+    <img src={{lastBan.banner}} alt="">
+</div>
+</div>
+<div *ngIf="isTablet" class="tablet">
+  <div class="delivery">
+    <img src={{lastBan.banner}} alt="">
+</div>
+</div>

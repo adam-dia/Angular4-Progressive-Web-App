@@ -1,0 +1,33 @@
+<!-- <ion-grid class="promote">
+    <ion-row class="rower" (click)="goToMenu(menus)">
+      <ion-col class="coller">
+          <img src={{menus.icon}}>
+          <p>{{menus.label}}</p>
+      </ion-col>
+
+    </ion-row>
+</ion-grid> -->
+
+<div *ngIf="isPhone" class="phone">
+    <ion-grid class="promote">
+        <ion-row class="rower" (click)="goToMenu(menus)">
+          <ion-col class="coller">
+              <img src={{menus.icon}}>
+              <p>{{menus.label}}</p>
+          </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+    <ion-grid class="promote">
+        <ion-row class="rower" (click)="goToMenu(menus)">
+          <ion-col class="coller">
+              <img src={{menus.icon}}>
+              <p>{{menus.label}}</p>
+          </ion-col>
+
+        </ion-row>
+    </ion-grid>
+</div>

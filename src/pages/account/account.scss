@@ -1,0 +1,221 @@
+page-account {
+  .account_page{
+    // background: url('../assets/img/fullsize.jpeg') fixed center;
+    // background-image: url("../assets/img/account.png");
+    background-size:cover;
+    background: white;
+    // -webkit-filter: grayscale(.06);
+  }
+
+  .phone {
+    .login_logo{
+      margin-top: 20px !important;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 11rem;
+      margin-bottom: 10px;
+
+        h2{
+          color: white;
+        }
+    }
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top:0;
+      color: white;
+      img{
+        width: 100px;
+        margin-bottom: -15px;
+      }
+      h3 {
+        color: #444242;
+        margin: 0px;
+        font-weight: 400;
+      }
+      p {
+        line-height: 30px;
+        color: #525050;
+        // background: red;
+        font-size: 13px;
+        margin: 0px;
+      }
+    }
+    .list-ios .item-block .item-inner{
+      border: 0px;
+    }
+    .login_form{
+      background: rgba(255, 255, 255, 1);
+      text-align: center;
+      margin: auto;
+      padding: 20px 20px 20px 10px;
+      border-color: #eae7e7 #dedddd #dcd8d8;
+      border-radius: 4px;
+      margin-bottom: 50px;
+
+      ion-list{
+        position: relative;
+        text-align: center;
+        top: -15px;
+        ion-item{
+
+          margin: auto;
+          margin-bottom: 0px;
+          background: transparent;
+          border: 0px !important;
+          border-bottom: 2px solid white !important;
+          color: #151527 !important;
+          border: 1px solid #a7a7a7 !important;
+          margin-bottom: -2px;
+          margin-bottom: 10px;
+          background: #eeeded;
+          margin-bottom: -2px;
+        }
+      }
+    }
+
+    .form_validate{
+      position: relative;
+      top: 0px;
+      margin-bottom: 3px;
+      text-align: center;
+      button{
+        background: #ff6600;
+        border: none;
+        color: white;
+        height: 40px;
+      }
+    }
+    .suscribe{
+      position: relative;
+      color: #0e142e;
+      text-align: center;
+      button{
+        background: transparent;
+        color: #ff6600;
+        font-size: 1.3rem;
+        text-decoration: underline;
+      }
+    }
+    .page-title{
+      background: white;
+      position: relative;
+      top: 0px;
+      padding: 0px 10px;
+      border: 1px solid silver;
+      height: 30px;
+      p{
+        line-height: 3px;
+      }
+    }
+  }
+  // ****************** tablet ****************
+
+  .tablet {
+    .login_logo{
+      margin-top: 20px !important;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 11rem;
+      margin-bottom: 10px;
+
+        h2{
+          color: white;
+        }
+    }
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top:0;
+      color: white;
+      img{
+        width: 100px;
+        margin-bottom: -15px;
+      }
+      h3 {
+        color: #444242;
+        margin: 0px;
+        font-weight: 400;
+        font-size: .4em;
+      }
+      p {
+        line-height: 50px;
+        color: #525050;
+        // background: red;
+        font-size: 23px;
+        margin: 0px;
+      }
+    }
+    .list-ios .item-block .item-inner{
+      border: 0px;
+    }
+    .login_form{
+      background: rgba(255, 255, 255, 1);
+      text-align: center;
+      margin: auto;
+      padding: 20px 20px 20px 10px;
+      border-color: #eae7e7 #dedddd #dcd8d8;
+      border-radius: 4px;
+      margin-bottom: 50px;
+
+      ion-list{
+        position: relative;
+        text-align: center;
+        top: -15px;
+        ion-item{
+          margin: auto;
+          margin-bottom: 0px;
+          background: transparent;
+          border: 0px !important;
+          border-bottom: 2px solid white !important;
+          color: #151527 !important;
+          border: 3px solid white !important;
+          // border: 1px solid #a7a7a7 !important;
+          margin-bottom: -2px;
+          margin-bottom: 10px;
+          background: #eeeded;
+          margin-bottom: -2px;
+          height: 65px;
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    .form_validate{
+      position: relative;
+      top: 0px;
+      margin-bottom: 3px;
+      text-align: center;
+      button{
+        background: #ff6600;
+        border: none;
+        color: white;
+        height: 60px;
+        font-size: 1.4em;
+      }
+    }
+    .suscribe{
+      position: relative;
+      color: #0e142e;
+      text-align: center;
+      font-size: 1.2em;
+      button{
+        background: transparent;
+        color: #ff6600;
+        font-size: 1.7rem;
+        text-decoration: underline;
+      }
+    }
+    .page-title{
+      background: white;
+      position: relative;
+      top: 0px;
+      padding: 0px 10px;
+      border: 1px solid silver;
+      height: 30px;
+      p{
+        line-height: 3px;
+      }
+    }
+  }
+}

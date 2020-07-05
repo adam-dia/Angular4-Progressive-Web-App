@@ -1,0 +1,15 @@
+  <!-- <button ion-button icon-only (click)="goToLogin()">
+    <ion-icon name="ios-contact-outline"></ion-icon>
+  </button> -->
+
+  <div *ngIf="isPhone" class="phone">
+      <button ion-button icon-only (click)="goToLogin()">
+          <ion-icon name="ios-contact-outline"></ion-icon>
+        </button>
+  </div>
+
+  <div *ngIf="isTablet" class="tablet">
+      <button ion-button icon-only (click)="goToLogin()">
+          <ion-icon name="ios-contact-outline"></ion-icon>
+        </button>
+  </div>

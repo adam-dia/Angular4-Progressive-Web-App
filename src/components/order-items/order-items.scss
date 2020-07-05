@@ -1,0 +1,65 @@
+order-items {
+  .seller_name{
+    background: rgba(192, 192, 192, 0.3);
+    padding: 2px 10px;
+    border-radius: 2px;
+    color: black;
+    text-shadow: 0px 1px 1px white;
+  }
+  .cart_item{
+    margin-bottom: 5px;
+    h2{
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+    .seller{
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      font-weight: 200;
+    }
+    .cart_quantity{
+      font-weight: 200;
+      input[type=text]{
+        border: none;
+        border-bottom: 1px solid #e8e7e7;
+        text-align: center;
+      }
+      .product_som, .product_device{
+        color: #f16723;
+        font-weight: 400;
+      }
+    }
+  }
+  .cart_delete{
+    font-size: 2rem;
+    margin-right: 5px;
+    padding: 0px;
+    color: red;
+  }
+  .item-md .item-button{
+    padding: 0px;
+    font-size: 2.1rem;
+  }
+  .item-ios .item-button{
+    padding: 0px;
+    font-size: 2.1rem;
+  }
+  .order_now{
+    position: fixed;
+    bottom: 0px;
+    background: white;
+    .cart_total{
+      margin: 0px;
+      font-size: 2rem;
+      font-weight: 500;
+      .cart_sum{
+        color: rgba(0, 0, 0, 0.87);
+        font-weight: 300;
+        font-size: 1.7rem;
+      }
+    }
+    button{
+      background: #f16722;
+    }
+  }
+}

@@ -1,0 +1,75 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title start>DeliveryAddress</ion-title> -->
+    <ion-buttons float-start>
+        <button ion-button (click)="closeModal()"><ion-icon name="md-arrow-back"></ion-icon> </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="delevery-page">
+  <h3>  <ion-icon name="md-paper-plane"></ion-icon>&nbsp;&nbsp; Ajouter une adresse de livraison</h3>
+
+  <ion-list>
+        <ion-item>
+            <ion-label class="icon_ajustement" fixed><ion-icon name="ios-contact"></ion-icon></ion-label>
+            <ion-input type="text" value="" placeholder="Nom du contact"></ion-input>
+        </ion-item>
+
+          <ion-item>
+            <ion-label fixed><ion-icon name="ios-phone-portrait"></ion-icon>&nbsp;&nbsp; Contact</ion-label>
+            <ion-input type="number" value="" min="0"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label><ion-icon name="ios-pin-outline"></ion-icon>&nbsp;&nbsp; Commune</ion-label>
+              <ion-select [(ngModel)]="commune">
+                <ion-option value="c">Classique</ion-option>
+                <ion-option value="e">Express</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label><ion-icon name="ios-map-outline"></ion-icon>&nbsp;&nbsp; Quartier</ion-label>
+              <ion-select [(ngModel)]="quarter">
+                <ion-option value="c">Classique</ion-option>
+                <ion-option value="e">Express</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label><ion-icon name="ios-bicycle-outline"></ion-icon>&nbsp;&nbsp; Livraison</ion-label>
+              <ion-select [(ngModel)]="deliveryType">
+                <ion-option value="c">Classique</ion-option>
+                <ion-option value="e">Express</ion-option>
+              </ion-select>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Date de Livraison: </ion-label>
+              <ion-datetime displayFormat="DD MMM, YYYY" [(ngModel)]="myDate" min="2015" max="2030"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+              <ion-label>Heure de Livraison: </ion-label>
+              <ion-datetime displayFormat="HH:mm" [(ngModel)]="myDate" min="2015" max="2030"></ion-datetime>
+          </ion-item>
+
+          <ion-item>
+              <ion-label class="icon_ajustement" fixed><ion-icon name="ios-home-outline"></ion-icon></ion-label>
+              <ion-input type="text" value="" placeholder="Décrivez brièvement votre adresse"></ion-input>
+          </ion-item>
+
+
+        </ion-list>
+
+        <ion-grid>
+            <ion-row>
+              <ion-col><button ion-button color="btn-orange" col-12>Ajouter</button></ion-col>
+            </ion-row>
+        </ion-grid>
+
+</ion-content>

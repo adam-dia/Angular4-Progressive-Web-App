@@ -1,0 +1,24 @@
+<ion-row class="filter">
+    <ion-col col-6>
+      <ion-item>
+        <ion-label>Gaming</ion-label>
+        <ion-select [(ngModel)]="gaming" interface="popover">
+          <ion-option value="nes">NES</ion-option>
+          <ion-option value="n64">Nintendo64</ion-option>
+          <ion-option value="ps">PlayStation</ion-option>
+          <ion-option value="genesis">Sega Genesis</ion-option>
+          <ion-option value="saturn">Sega Saturn</ion-option>
+          <ion-option value="snes">SNES</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col col-6>
+      <ion-item>
+        <ion-label>Trier</ion-label>
+        <ion-select [(ngModel)]="gaming" interface="popover">
+          <ion-option value="asc">Prix : Croissant</ion-option>
+          <ion-option value="desc">Prix : Decroissant</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>

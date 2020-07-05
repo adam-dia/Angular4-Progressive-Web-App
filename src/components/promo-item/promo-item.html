@@ -1,0 +1,41 @@
+        <!-- <ion-grid>
+              <ion-row>
+                <ion-col class="promo_item" (click)="goToProductDetail(deals)">
+                  <div class="promo_tags">Promo</div>
+                  <div class="promo_title"> <h2>{{deals.manufac}}</h2> </div>
+                  <div class="promo_picture"><img src={{deals.picture}} alt=""></div>
+                  <div class="promo_price">{{deals.price}} </div>
+                </ion-col>
+              </ion-row>
+
+        </ion-grid> -->
+
+<div *ngIf="isPhone" class="phone">
+    <ion-grid>
+        <ion-row>
+          <ion-col class="promo_item" (click)="goToProductDetail(deals)">
+            <div class="promo_tags">Promo</div>
+            <div class="promo_title"> <h2>{{deals.manufac}}</h2> </div>
+            <div class="promo_picture"><img src={{deals.picture}} alt=""></div>
+            <div class="promo_price">{{deals.price}} </div>
+            <!-- <div class="promo_price">{{deals.price}} <span class="device">FCFA</span></div> -->
+          </ion-col>
+        </ion-row>
+
+  </ion-grid>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+    <ion-grid>
+        <ion-row>
+          <ion-col class="promo_item" (click)="goToProductDetail(deals)">
+            <div class="promo_tags">Promo</div>
+            <div class="promo_title"> <h2>{{deals.manufac}}</h2> </div>
+            <div class="promo_picture"><img src={{deals.picture}} alt=""></div>
+            <div class="promo_price">{{deals.price}} </div>
+            <!-- <div class="promo_price">{{deals.price}} <span class="device">FCFA</span></div> -->
+          </ion-col>
+        </ion-row>
+
+  </ion-grid>
+</div>

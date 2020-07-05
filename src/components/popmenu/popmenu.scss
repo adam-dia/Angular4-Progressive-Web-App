@@ -1,0 +1,67 @@
+popmenu {
+    position: relative !important;
+    background: white;
+    .phone {
+        .grid {
+            background: white;
+            height: 100px;
+            width: 20%;
+            float: left;
+        }
+        ion-row {
+            float: left;
+        }
+        .coller {
+            height: 90px; // background: url("../assets/img/loader.gif");
+            background-size: 40px;
+            background-repeat: no-repeat;
+            background-position-x: 7px;
+            background-position-y: 8px;
+        }
+        .promote {
+            ion-col {
+                margin-right: 7px;
+                p {
+                    font-weight: 400;
+                    font-size: 10px;
+                    margin-top: 5px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    .tablet {
+        .grid {
+            background: white;
+            height: 130px;
+            width: 20%;
+            float: left;
+            text-align: center;
+            border: 3px solid #f2f2f2;
+        }
+        ion-row {
+            float: left;
+        }
+        .coller {
+            height: 90px; // background: url("../assets/img/loader.gif");
+            background-size: 40px;
+            background-repeat: no-repeat;
+            background-position-x: 7px;
+            background-position-y: 8px;
+            img {
+                width: 50%;
+            }
+        }
+        .promote {
+            ion-col {
+                margin-right: 7px;
+                p {
+                    font-weight: 400;
+                    font-size: 16px;
+                    margin-top: 5px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

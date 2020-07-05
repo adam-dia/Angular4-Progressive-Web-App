@@ -1,0 +1,27 @@
+
+<div *ngIf="isPhone" class="phone">
+  <ion-row >
+      <!-- <ion-row> -->
+        <ion-col col-12 [ngClass]="{'categories_item': product.price == product.price_init, 'categories_item_init_price': product.price != product.price_init}" (click)="goToProduct(product)" >
+          <div class="categories_picture" *ngIf="!product.picture"><img src="assets/img/no-pic.jpg"></div>
+          <div class="categories_picture" *ngIf="product.picture"><img src={{product.picture}}></div>
+          <h2>{{ (product.name | slice:0:35)+' ...' }} </h2>
+          <p class="categories_seller">Marque : <span class="seller_name">{{product.manufac | slice:0:25}}</span></p>
+          <p class="categories_price"> {{product.price}} FCFA </p>
+          <p class="second_init_price" *ngIf="product.price != product.price_init"> {{product.price_init}} FCFA</p>
+        </ion-col>
+    </ion-row>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+  <ion-row >
+      <!-- <ion-row> -->
+        <ion-col col-12 class="categories_item" (click)="goToProduct(product)" >
+          <div class="categories_picture" *ngIf="!product.picture"><img src="assets/img/no-pic.jpg"></div>
+          <div class="categories_picture" *ngIf="product.picture"><img src={{product.picture}}></div>
+          <h2>{{ (product.name | slice:0:35)+' ...' }} </h2>
+          <p class="categories_seller">Marque : <span class="seller_name">{{product.manufac | slice:0:30}}</span></p>
+          <p class="categories_price"> {{product.price}} FCFA </p>
+        </ion-col>
+    </ion-row>
+</div>

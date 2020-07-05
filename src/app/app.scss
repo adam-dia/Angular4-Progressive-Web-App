@@ -1,16 +1,659 @@
-// http://ionicframework.com/docs/theming/
+.phone {
+    .list-header-md {
+        border-top: none !important;
+    }
+    .list-ios {
+        margin-bottom: 0px !important;
+    }
+    .list-md {
+        margin-bottom: -2px;
+    }
+    ion-title {
+        .toolbar-title-md,
+        .toolbar-title-ios {
+            padding: 0 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f142f;
+            text-transform: uppercase;
+            float: left;
+        }
+    }
+    .action-sheet-ios .action-sheet-destructive {
+        color: #0079ff;
+    }
+    @-webkit-keyframes slideInLeft {
+        from {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes slideInLeft {
+        from {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .slideInLeft {
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+    }
+    .shops {
+        height: 150px;
+        overflow: auto;
+        margin-bottom: 0px;
+        border: none !important;
+    }
+    .conn_error {
+        color: white;
+        text-align: center;
+        margin-top: 50%;
+        .reload {
+            color: #488aff;
+        }
+        img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    }
+    .diplayCat,
+    .mainBloc {
+        animation: 450ms slideInLeft ease;
+    }
+    .popup_shop {
+        position: fixed;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.6);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 35%;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 5px;
+        animation: bounceInDown 1s ease;
+        .popup {
+            // background: url('../assets/img/fullsize.jpeg') center;
+            background-size: cover;
+            padding: 20px; // background: rgba(255,255,255,.9);
+            border-radius: 8px;
+            width: 87%;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 400;
+            .top1 {
+                margin-top: 1px;
+            }
+            .top2 {
+                margin-top: 10px;
+            }
+            .list-ios>.item-block:first-child {
+                border-bottom: 0.55px solid #c8c7cc !important;
+            }
+            .retrait-mag,
+            .mode-livraison {
+                // border: 2px solid #ff7b00 !important;
+                // background: white;
+                width: 85%;
+                padding: 0px !important;
+                margin: auto;
+                overflow: scroll;
+                height: 215px;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                padding-bottom: 10px !important;
+                margin: auto !important; // box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+                .item-md,
+                .item-ios {
+                    padding-left: 0px;
+                }
+                .list-ios>.item-block:last-child,
+                .list-ios>.item-wrapper:last-child .item-block {
+                    border: none !important;
+                }
+                .list-ios>.item-block:first-child {}
+                p {
+                    height: 25px !important;
+                    width: 100%;
+                    margin: auto;
+                    .item-ios.item-block .item-inner,
+                    .list-ios .item-block .item-inner {
+                        border: none !important;
+                    }
+                }
+            }
+            .mode-livraison {
+                height: 150px;
+                margin-bottom: 10px;
+                .marketplace {
+                    height: 180px !important;
+                    .shop-logo {
+                        max-width: 70%;
+                        img {
+                            height: 60px !important;
+                        }
+                    }
+                    .shop-name {
+                        border: 1px solid silver;
+                        margin-top: 10px;
+                        position: relative;
+                        top: 18px;
+                        padding: 3px 5px;
+                        border-radius: 3px; // background: #f3f2f2;
+                        font-size: .75em;
+                        font-weight: 700;
+                        text-shadow: 0px 1px 1px white;
+                    }
+                    .shop-Location {
+                      height: 53px !important;
+                      font-size: .5em;
+                      width: 100%;
+                      position: relative;
+                      top: 5px;
+                      border-radius: 4px;
+                      text-align: left;
+                      padding: 7px 0px 0px 5px;
+                      background: #f2f2f2;
+                      line-height: 13px;
+                    }
+                    .one-location {
+                      padding: 15px;
+                      font-size: .6em;
+                    }
+                }
+                ion-list {
+                    overflow-y: scroll;
+                    ion-grid {
+                        padding: 0px !important;
+                        ion-col {
+                            background: white;
+                            height: 37px;
+                            font-size: 1.2em;
+                            text-align: center;
+                            padding: 10px;
+                            border-right: 1px solid silver;
+                            height: 180px;
+                            padding-top: 20px; // border-bottom: 1px solid gainsboro;
+                        }
+                    }
+                }
+            }
+            .goBack {
+                margin-top: 1px;
+                border-radius: 0px;
+                margin: auto;
+                width: 85% !important;
+                text-align: left;
+                padding-left: 15px;
+                border-left: 5px solid #404040;
+            }
+            h2 {
+                font-size: 1.3rem;
+                margin-top: 0px;
+                color: white;
+                padding: 12px 5px;
+                font-weight: 500;
+                letter-spacing: -.5px;
+                width: 85%;
+                margin-left: 19px;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px; // background: #ff7b00;
+                background: #ff4e00; // background: #cec9c9;
+                margin-bottom: 0px;
+                height: 45px;
+                margin: auto !important;
+            }
+        }
+    }
+    .mainBloc {
+        ion-list {
+            button {
+                height: 60px;
+                ion-icon {
+                    font-size: 1.5em;
+                    position: absolute;
+                    margin-right: 10px;
+                    top: 0px !important;
+                }
+                span {
+                    margin-left: 15px;
+                }
+            }
+        }
+    }
+    .sideBar_menu {
+        .accordion-list {
+            .section-active {
+                background: rgb(235, 234, 234) !important;
+            }
+            .section {
+                background: transparent !important;
+            }
+            .child-item {
+                background: rgb(218, 216, 216) !important;
+                padding-left: 35px;
+                animation: 450ms slideInLeft ease;
+            }
+            .chil-item {
+                background: rgb(248, 245, 245) !important;
+                padding-left: 50px;
+                animation: 450ms slideInLeft ease;
+            }
+        }
+        h3 {
+            background: #f9f7f7;
+            margin: 0px !important;
+            padding: 15px 0px 15px 20px;
+            font-size: 1.2em;
+            color: #292d38;
+            border-bottom: 1px solid white;
+            border-left: 8px solid #fe6501;
+            border-bottom: 1px solid #e2dfdf;
+        }
+        .sideBar_menu .list-md,
+        .sideBar_menu .list-ios {
+            border-right: 2px solid white;
+            margin-bottom: 0px !important;
+        }
+        .toolbar-title-md {
+            font-size: 1.6rem;
+        }
+        background: white;
+        .list-md .item-block .item-inner,
+        .list-ios .item-block .item-inner {
+            border: none !important;
+        }
+        .list-md,
+        .list-ios {
+            border-right: 2px solid white;
+        }
+        .item-md,
+        .item-ios {
+            background: transparent !important;
+            border-bottom: 1px solid #ebebeb;
+            border-radius: none !important;
+            color: #111939;
+            border-radius: 0px !important;
+            font-size: 1.4rem;
+            margin: 0px;
+        }
+        .label-md,
+        .label-ios {
+            margin: 0px !important;
+        }
+        .item-ios[detail-push] .item-inner,
+        button.item-ios:not([detail-none]) .item-inner,
+        a.item-ios:not([detail-none]) .item-inner {
+            background-image: none !important;
+        }
+        .list-ios>.item-block:last-child,
+        .list-ios>.item-wrapper:last-child .item-block {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+        }
+        .specialSelector {
+            &:hover,
+            &:active {
+                background: #f9f7f7 !important;
+                border-left: 6px solid #fe6501;
+                border-bottom: 1px solid #e2dfdf;
+            }
+        }
+        .specialShop {
+            background: #f1f1f1 !important;
+            height: 25px;
+            padding-left: 50px;
+            animation: 450ms slideInLeft ease;
+            span {
+                margin-left: 5px;
+            }
+        }
+    }
+    .new-version {
+        background: rgba(0, 0, 0, 0.75);
+        z-index: 9999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        .version-content {
+            background: white;
+            width: 80%;
+            padding: 10px;
+            border-radius: 4px;
+            position: relative;
+            top: 25%;
+            margin: auto;
+            padding-left: 20px;
+            .texte {
+                font-size: 1.1em;
+                line-height: 20px;
+                border-top: 1px solid #dedcdc;
+                margin-top: 0px;
+                padding-top: 15px;
+            }
+            h2 {
+                font-size: 1.4em !important;
+            }
+            .versionBtn {
+                grid {
+                    margin-left: -10px;
+                }
+                .close {
+                    height: 35px;
+                    background: transparent;
+                    border: 1px solid #232323;
+                    color: black;
+                    font-size: .83em;
+                    text-transform: uppercase;
+                    box-shadow: 0px 0px 0px;
+                }
+                .updater {
+                    height: 35px;
+                    background: transparent;
+                    border: 1px solid #ff5100;
+                    color: #ff5100;
+                    font-size: .83em;
+                    text-transform: uppercase;
+                    box-shadow: 0px 0px 0px;
+                }
+            }
+        }
+    }
+}
 
-
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+// ************************** Tablet menu ********************
+.tablet {
+    .list-header-md {
+        border-top: none !important;
+    }
+    .list-ios {
+        margin-bottom: 0px !important;
+    }
+    .list-md {
+        margin-bottom: -2px;
+    }
+    ion-title {
+        .toolbar-title-md,
+        .toolbar-title-ios {
+            padding: 0 12px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f142f;
+            text-transform: uppercase;
+            float: left;
+        }
+    }
+    .action-sheet-ios .action-sheet-destructive {
+        color: #0079ff;
+    }
+    @-webkit-keyframes slideInLeft {
+        from {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    @keyframes slideInLeft {
+        from {
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            visibility: visible;
+        }
+        to {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .slideInLeft {
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+    }
+    .shops {
+        height: 150px;
+        overflow: auto;
+        margin-bottom: 0px;
+        border: none !important;
+    }
+    .conn_error {
+        color: white;
+        text-align: center;
+        margin-top: 50%;
+        .reload {
+            color: #488aff;
+        }
+        img {
+            width: 50px;
+            margin-bottom: 10px;
+        }
+    }
+    .diplayCat,
+    .mainBloc {
+        animation: 450ms slideInLeft ease;
+    }
+    .popup_shop {
+        position: fixed;
+        z-index: 999;
+        background: rgba(0, 0, 0, 0.6);
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding-top: 25%;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 5px;
+        animation: bounceInDown 1s ease;
+        .popup {
+            // background: rgba(255,255,255,.9);
+            background: url(../assets/img/fullsize.jpeg) center;
+            border-radius: 8px;
+            width: 70%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+            font-size: 1em;
+            font-weight: 400;
+            .top1 {
+                margin-top: 1px;
+            }
+            .list-ios>.item-block:first-child {
+                border-bottom: 0.55px solid #c8c7cc !important;
+            }
+            .retrait-mag,
+            .mode-livraison {
+                border: 2px solid #ff7b00 !important;
+                background: white;
+                width: 95%;
+                padding: 0px !important;
+                margin: auto;
+                overflow: scroll;
+                height: 300px;
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                padding-bottom: 10px !important;
+                margin-top: 0px !important;
+                .item-md,
+                .item-ios {
+                    padding-left: 0px;
+                }
+                .list-ios>.item-block:last-child,
+                .list-ios>.item-wrapper:last-child .item-block {
+                    border: none !important;
+                }
+                .list-ios>.item-block:first-child {}
+                p {
+                    height: 60px !important;
+                    width: 100%;
+                    margin: auto;
+                    .item-ios.item-block .item-inner,
+                    .list-ios .item-block .item-inner {
+                        border: none !important;
+                        height: 60px;
+                    }
+                }
+            }
+            .mode-livraison {
+                height: 150px;
+                margin-bottom: 10px;
+                ion-list {
+                    overflow-y: scroll;
+                    ion-grid {
+                        padding: 0px !important;
+                        ion-col {
+                            height: 50px;
+                            font-size: 1.2em;
+                            text-align: left;
+                            padding: 10px;
+                            border-bottom: 1px solid gainsboro;
+                        }
+                    }
+                }
+            }
+            .goBack {
+                margin-top: 1px;
+                border-radius: 0px;
+                margin: auto;
+                width: 95% !important;
+                text-align: left;
+                padding-left: 15px;
+                border-left: 5px solid #404040;
+            }
+            h2 {
+                font-size: 2rem;
+                margin-top: 0px;
+                color: white;
+                font-weight: 400;
+                padding: 5px;
+                font-weight: 400;
+                letter-spacing: -.5px;
+                width: 95%;
+                margin: auto;
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                background: #cec9c9;
+                margin-bottom: 0px;
+                height: 45px;
+            }
+        }
+    }
+    .mainBloc {
+        ion-list {
+            button {
+                height: 80px;
+                ion-icon {
+                    font-size: 2.2em;
+                    position: absolute;
+                    margin-right: 10px;
+                    top: 0px !important;
+                }
+                span {
+                    margin-left: 20px;
+                    font-size: 1.3em !important;
+                }
+            }
+        }
+    }
+    .sideBar_menu {
+        .accordion-list {
+            .section-active {
+                background: rgb(235, 234, 234) !important;
+            }
+            .section {
+                background: transparent !important;
+                height: 60px !important;
+                font-size: 1.2em;
+            }
+            .child-item {
+                background: rgb(218, 216, 216) !important;
+                padding-left: 35px;
+                animation: 450ms slideInLeft ease;
+            }
+            .chil-item {
+                background: rgb(248, 245, 245) !important;
+                padding-left: 50px;
+                animation: 450ms slideInLeft ease;
+            }
+        }
+        h3 {
+            background: #f9f7f7;
+            margin: 0px !important;
+            padding: 15px 0px 15px 20px;
+            font-size: 1.2em;
+            color: #292d38;
+            border-bottom: 1px solid white;
+            border-left: 8px solid #fe6501;
+            border-bottom: 1px solid #e2dfdf;
+        }
+        .sideBar_menu .list-md,
+        .sideBar_menu .list-ios {
+            border-right: 2px solid white;
+            margin-bottom: 0px !important;
+        }
+        .toolbar-title-md {
+            font-size: 1.6rem;
+        }
+        background: white;
+        .list-md .item-block .item-inner,
+        .list-ios .item-block .item-inner {
+            border: none !important;
+        }
+        .list-md,
+        .list-ios {
+            border-right: 2px solid white;
+        }
+        .item-md,
+        .item-ios {
+            background: transparent !important;
+            border-bottom: 1px solid #ebebeb;
+            border-radius: none !important;
+            color: #111939;
+            border-radius: 0px !important;
+            font-size: 1.4rem;
+            margin: 0px;
+        }
+        .label-md,
+        .label-ios {
+            margin: 0px !important;
+        }
+        .item-ios[detail-push] .item-inner,
+        button.item-ios:not([detail-none]) .item-inner,
+        a.item-ios:not([detail-none]) .item-inner {
+            background-image: none !important;
+        }
+        .list-ios>.item-block:last-child,
+        .list-ios>.item-wrapper:last-child .item-block {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+        }
+        .specialSelector {
+            &:hover,
+            &:active {
+                background: #f9f7f7 !important;
+                border-left: 6px solid #fe6501;
+                border-bottom: 1px solid #e2dfdf;
+            }
+        }
+        .specialShop {
+            background: #f1f1f1 !important;
+            height: 60px;
+            padding-left: 50px;
+            animation: 450ms slideInLeft ease;
+            span {
+                margin-left: 5px;
+            }
+        }
+    }
+}

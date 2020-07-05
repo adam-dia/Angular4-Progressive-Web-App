@@ -1,0 +1,511 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+    <!-- <ion-title>{{title}}</ion-title> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="page_confirmation">
+
+  <div class="confirm">
+    <p>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-3>
+            <a>
+              <ion-icon name="ios-person-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Connexion</span>
+            </a>
+          </ion-col>
+          <ion-col col-3 class="address">
+            <a>
+              <ion-icon name="ios-paper-plane-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Adresse</span>
+            </a>
+          </ion-col>
+          <ion-col col-3>
+            <a>
+              <ion-icon name="ios-calendar-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Date</span>
+            </a>
+          </ion-col>
+          <ion-col col-3>
+            <a>
+              <ion-icon name="ios-card-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Paiement</span>
+            </a>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </p>
+  </div>
+
+
+  <loader *ngIf="showSpinner"></loader>
+  <!-- <h2>Confirmation de commande</h2> -->
+  <!-- <h3><ion-icon name="md-paper-plane"></ion-icon>&nbsp;&nbsp; Adresse de livraison</h3> -->
+  <h4 class="blocTitle">Adresse de livraison</h4>
+  <form [formGroup]="rForm" class="formular">
+    <ion-list class="height-ajust">
+      <div *ngIf="idShop == 1">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="ios-pin-outline"></ion-icon>&nbsp;&nbsp; Commune
+          </ion-label>
+          <ion-select formControlName="commune" (ionChange)="quartier(rForm.value)" cancelText="Annuler">
+            <ion-option value="Abobo">Abobo</ion-option>
+            <ion-option value="Adjame">Adjame</ion-option>
+            <ion-option value="Yopougon">Yopougon</ion-option>
+            <ion-option value="Attecoube">Attecoube</ion-option>
+            <ion-option value="Bingerville">Bingerville</ion-option>
+            <ion-option value="Cocody">Cocody</ion-option>
+            <ion-option value="Marcory">Marcory</ion-option>
+            <ion-option value="Plateau">Plateau</ion-option>
+            <ion-option value="Koumassi">Koumassi</ion-option>
+            <ion-option value="Treichville">Treichville</ion-option>
+            <ion-option value="PortBouet">Port-Bouët</ion-option>
+            <!--<ion-option value="Bouake">Bouaké</ion-option>
+            <ion-option value="Yamoussoukro">Yamoussoukro</ion-option>
+            <ion-option value="Daloa">Daloa</ion-option>
+            <ion-option value="SanPedro">San-Pédro</ion-option> -->
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="ios-map-outline"></ion-icon>&nbsp;&nbsp; Quartier
+          </ion-label>
+          <ion-select formControlName="quartier" cancelText="Annuler">
+            <div *ngIf="Abobo">
+              <ion-option value="4 Etage" class="Abobo">4 Etage</ion-option>
+              <ion-option value="Abobo Baoulé" class="Abobo">Abobo Baoulé</ion-option>
+              <ion-option value="Aboboté" class="Abobo">Aboboté</ion-option>
+              <ion-option value="Agbekoua" class="Abobo">Agbekoua</ion-option>
+              <ion-option value="Akeikoua" class="Abobo">Akeikoua</ion-option>
+              <ion-option value="Anadore" class="Abobo">Anadore</ion-option>
+              <ion-option value="Anokoua" class="Abobo">Anokoua</ion-option>
+              <ion-option value="Avocatiers" class="Abobo">Avocatiers</ion-option>
+              <ion-option value="BC" class="Abobo">BC(belle cité)</ion-option>
+              <ion-option value="Belle ville" class="Abobo">Belle ville</ion-option>
+              <ion-option value="Camp commando" class="Abobo">Camp commando</ion-option>
+              <ion-option value="Derrière pont" class="Abobo">Derrière pont</ion-option>
+              <ion-option value="Abobo gare" class="Abobo">Abobo gare</ion-option>
+              <ion-option value="Houphouet Boigny" class="Abobo">Houphouet Boigny</ion-option>
+              <ion-option value="N'Dotre" class="Abobo">N'Dotre</ion-option>
+              <ion-option value="PK 18" class="Abobo">PK 18</ion-option>
+              <ion-option value="Plaque 1" class="Abobo">Plaque 1</ion-option>
+              <ion-option value="Samaké" class="Abobo">Samaké</ion-option>
+              <ion-option value="SOGEFIA" class="Abobo">SOGEFIA</ion-option>
+              <ion-option value="Université Nangui Abrogoua" class="Abobo">Université Nangui Abrogoua(Abobo Adjamé)</ion-option>
+            </div>
+
+            <div *ngIf="Adjame">
+              <ion-option value="Forum" class="Adjame">Forum</ion-option>
+              <ion-option value="220 logements" class="Adjame">220 logements</ion-option>
+              <ion-option value="Agban Gendarmerie" class="Adjame">Agban Gendarmerie</ion-option>
+              <ion-option value="Bracodi" class="Adjame">Bracodi</ion-option>
+              <ion-option value="Indénié" class="Adjame">Indénié</ion-option>
+              <ion-option value="Mirador" class="Adjame">Mirador</ion-option>
+              <ion-option value="Paillet" class="Adjame">Paillet</ion-option>
+              <ion-option value="Renault" class="Adjame">Renault</ion-option>
+              <ion-option value="Williamsville" class="Adjame">Williamsville</ion-option>
+              <ion-option value="St michel" class="Adjame">St michel</ion-option>
+              <ion-option value="Habitat 40" class="Adjame">Habitat 40</ion-option>
+            </div>
+
+            <div *ngIf="Yopougon">
+              <ion-option value="Zone industrielle" class="Yopougon">Zone industrielle</ion-option>
+              <ion-option value="Azito" class="Yopougon">Azito</ion-option>
+              <ion-option value="CHU" class="Yopougon">CHU</ion-option>
+              <ion-option value="Niangon nord" class="Yopougon">Niangon nord</ion-option>
+              <ion-option value="Académie des mers" class="Yopougon">Académie des mers</ion-option>
+              <ion-option value="Sogefia" class="Yopougon">Sogefia</ion-option>
+              <ion-option value="Millionnaire" class="Yopougon">Millionnaire</ion-option>
+              <ion-option value="Sicogi" class="Yopougon">Sicogi</ion-option>
+              <ion-option value="Selmair" class="Yopougon">Selmair</ion-option>
+              <ion-option value="Kouté" class="Yopougon">Koutée</ion-option>
+              <ion-option value="Maroc" class="Yopougon">Maroc</ion-option>
+              <ion-option value="Siporex" class="Yopougon">Siporex</ion-option>
+              <ion-option value="Andokoua" class="Yopougon">Andokoua</ion-option>
+              <ion-option value="Niangon sud" class="Yopougon">Niangon sud</ion-option>
+              <ion-option value="Lievre Rouge" class="Yopougon">Lievre Rouge</ion-option>
+              <ion-option value="Gesco" class="Yopougon">Gesco</ion-option>
+              <ion-option value="Toit rouge" class="Yopougon">Toit rouge</ion-option>
+              <ion-option value="Abobodoumin" class="Yopougon">Abobodoumin</ion-option>
+              <ion-option value="Cité verte" class="Yopougon">Cité verte</ion-option>
+              <ion-option value="Port-Bouet 2" class="Yopougon">Port-Bouet 2</ion-option>
+              <ion-option value="Ananerais" class="Yopougon">Ananerais</ion-option>
+              <ion-option value="Nouveau Quartier" class="Yopougon">Nouveau Quartier</ion-option>
+              <ion-option value="KM 17" class="Yopougon">KM 17</ion-option>
+              <ion-option value="Nouveau Quartier" class="Yopougon">Nouveau Quartier</ion-option>
+            </div>
+
+            <div *ngIf="Attecoube">
+              <ion-option value="Lokodjoro" class="Attecoube">Lokodjoro</ion-option>
+              <ion-option value="Cité Fermont" class="Attecoube">Cité Fermont </ion-option>
+              <ion-option value="Terminus 04" class="Attecoube">Terminus 04</ion-option>
+              <ion-option value="Attecoube 3" class="Attecoube">Attecoube 3</ion-option>
+              <ion-option value="Quartier ebrié" class="Attecoube">Quartier ebrié</ion-option>
+              <ion-option value="ST Joseph" class="Attecoube">ST Joseph</ion-option>
+              <ion-option value="Sebroko" class="Attecoube">Sebroko</ion-option>
+              <ion-option value="Abobo-Doumé" class="Attecoube">Abobo-Doumé</ion-option>
+              <ion-option value="Jerusalem" class="Attecoube">Jerusalem</ion-option>
+              <ion-option value="Santé" class="Attecoube">Santé</ion-option>
+            </div>
+
+            <div *ngIf="Cocody">
+              <ion-option value="Abatta" class="Cocody">Abatta</ion-option>
+              <ion-option value="Aghiens" class="Cocody">Aghien</ion-option>
+              <ion-option value="Akouédo" class="Cocody">Akouédo</ion-option>
+              <ion-option value="Angre" class="Cocody">Angre</ion-option>
+              <ion-option value="Angre château" class="Cocody">Angre château</ion-option>
+              <ion-option value="Anono" class="Cocody">Anono</ion-option>
+              <ion-option value="Attoban" class="Cocody">Attoban</ion-option>
+              <ion-option value="Blokosso" class="Cocody">Blokosso</ion-option>
+              <ion-option value="Cocody centre" class="Cocody">Cocody centre</ion-option>
+              <ion-option value="Bonoumin" class="Cocody">Bonoumin</ion-option>
+              <ion-option value="Danga" class="Cocody">Danga</ion-option>
+              <ion-option value="Deux-Plateau" class="Cocody">Deux Plateaux</ion-option>
+              <ion-option value="DJIBI" class="Cocody">DJIBI</ion-option>
+              <ion-option value="Faya" class="Cocody">Faya</ion-option>
+              <ion-option value="M'Badon" class="Cocody">M'Badon</ion-option>
+              <ion-option value="M'Pouto" class="Cocody">M'Pouto</ion-option>
+              <ion-option value="Plateau Dokui" class="Cocody">Plateau Dokui</ion-option>
+              <ion-option value="Riviera 2" class="Cocody">Riviera 2</ion-option>
+              <ion-option value="Riviera 3" class="Cocody">Riviera 3</ion-option>
+              <ion-option value="Riviera Beverly hills" class="Cocody">Riviera Beverly hills</ion-option>
+              <ion-option value="Riviera siad" class="Cocody">Riviera ciad</ion-option>
+              <ion-option value="Riviera Golf" class="Cocody">Riviera Golf</ion-option>
+              <ion-option value="Riviera Palmeraie" class="Cocody">Riviera Palmeraie</ion-option>
+              <ion-option value="Université FHB" class="Cocody">Université FHB</ion-option>
+              <ion-option value="Vallon" class="Cocody">Vallon</ion-option>
+            </div>
+            <div *ngIf="Plateau">
+              <ion-option value="Cité administrative" class="Plateau">Cité administrative</ion-option>
+              <ion-option value="Paris village" class="Plateau">Paris village</ion-option>
+              <ion-option value="Gare sud" class="Plateau">Gare sud</ion-option>
+              <ion-option value="Rue du commerce" class="Plateau">Rue du commerce</ion-option>
+              <ion-option value="Sitarail" class="Plateau">Sitarail</ion-option>
+              <ion-option value="Palais de justice" class="Plateau">Palais de justice</ion-option>
+              <ion-option value="Sorbonne" class="Plateau">Sorbonne</ion-option>
+            </div>
+
+            <div *ngIf="Marcory">
+              <ion-option value="Résidentiel" class="Marcory">Résidentiel</ion-option>
+              <ion-option value="Remblais" class="Marcory">Remblais</ion-option>
+              <ion-option value="Anoumabo" class="Marcory">Anoumabo</ion-option>
+              <ion-option value="Zone4" class="Marcory">Zone4</ion-option>
+              <ion-option value="Biétry" class="Marcory">Biétry</ion-option>
+              <ion-option value="Hibiscus" class="Marcory">Hibiscus</ion-option>
+              <ion-option value="Champroux" class="Marcory">Champroux</ion-option>
+              <ion-option value="Foyer des jeunes" class="Marcory">Foyer des jeunes</ion-option>
+              <ion-option value="Sicogi" class="Marcory">Sicogi</ion-option>
+            </div>
+
+            <div *ngIf="Koumassi">
+              <ion-option value="Remblais" class="Koumassi">Remblais</ion-option>
+              <ion-option value="Sicogi" class="Koumassi">Sicogi</ion-option>
+              <ion-option value="Sogefia" class="Koumassi">Sogefia</ion-option>
+            </div>
+
+            <div *ngIf="Treichville">
+              <ion-option value="La Ras" class="Treichville">La Ras</ion-option>
+              <ion-option value="Belle ville" class="Treichville">Belle ville</ion-option>
+              <ion-option value="France-Amérique" class="Treichville">France-Amérique</ion-option>
+              <ion-option value="Zone3" class="Treichville">Zone3</ion-option>
+              <ion-option value="Zone portuaire" class="Treichville">Zone portuaire</ion-option>
+              <ion-option value="Biafra" class="Treichville">Biafra</ion-option>
+              <ion-option value="Palais de la culture" class="Treichville">Palais de la culture</ion-option>
+              <ion-option value="Palais des sports" class="Treichville">Palais des sports</ion-option>
+              <ion-option value="Immeuble Nanan Yamousso" class="Treichville">Immeuble Nanan Yamousso</ion-option>
+            </div>
+
+            <div *ngIf="Portbouet">
+              <ion-option value="Gonzague" class="bouet">Gonzague</ion-option>
+              <ion-option value="PORT-BOUET centre" class="bouet">PORT-BOUET centre</ion-option>
+              <ion-option value="Vridi" class="bouet">Vridi</ion-option>
+              <ion-option value="Adjouffou" class="bouet">Adjouffou</ion-option>
+              <ion-option value="Aéroport" class="bouet">Aéroport</ion-option>
+              <ion-option value="Jean-Foly" class="bouet">Jean-Foly</ion-option>
+            </div>
+
+            <!--<div *ngIf="Yamoussoukro">
+              <ion-option value="Yamoussoukro" class="bouet">Yamoussoukro</ion-option>
+            </div>
+            <div *ngIf="Bouake">
+              <ion-option value="Bouake" class="bouet">Bouaké</ion-option>
+            </div>
+            <div *ngIf="daloa">
+              <ion-option value="Daloa" class="bouet">Daloa</ion-option>
+            </div>
+
+            <div *ngIf="sp">
+              <ion-option value="San-Pedro" class="sp">San-Pédro</ion-option>
+            </div>-->
+          </ion-select>
+        </ion-item>
+      </div>
+
+  <div *ngIf="idShop == 20">
+        <ion-item>
+          <ion-label>
+            <ion-icon name="ios-pin-outline"></ion-icon>&nbsp;&nbsp; Commune
+          </ion-label>
+          <ion-select formControlName="commune" (ionChange)="quartier(rForm.value)" cancelText="Annuler">
+            <ion-option value="Abobo">Abobo</ion-option>
+            <ion-option value="Adjame">Adjame</ion-option>
+            <ion-option value="Yopougon">Yopougon</ion-option>
+            <ion-option value="Attecoube">Attecoube</ion-option>
+            <ion-option value="Bingerville">Bingerville</ion-option>
+            <ion-option value="Cocody">Cocody</ion-option>
+            <ion-option value="Marcory">Marcory</ion-option>
+            <ion-option value="Plateau">Plateau</ion-option>
+            <ion-option value="Koumassi">Koumassi</ion-option>
+            <ion-option value="Treichville">Treichville</ion-option>
+            <ion-option value="PortBouet">Port-Bouët</ion-option>
+            <ion-option value="Bouake">Bouaké</ion-option>
+            <ion-option value="Yamoussoukro">Yamoussoukro</ion-option>
+            <ion-option value="Daloa">Daloa</ion-option>
+            <ion-option value="SanPedro">San-Pédro</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>
+            <ion-icon name="ios-map-outline"></ion-icon>&nbsp;&nbsp; Quartier
+          </ion-label>
+          <ion-select formControlName="quartier" cancelText="Annuler">
+            <div *ngIf="Abobo">
+              <ion-option value="4 Etage" class="Abobo">4 Etage</ion-option>
+              <ion-option value="Abobo Baoulé" class="Abobo">Abobo Baoulé</ion-option>
+              <ion-option value="Aboboté" class="Abobo">Aboboté</ion-option>
+              <ion-option value="Agbekoua" class="Abobo">Agbekoua</ion-option>
+              <ion-option value="Akeikoua" class="Abobo">Akeikoua</ion-option>
+              <ion-option value="Anadore" class="Abobo">Anadore</ion-option>
+              <ion-option value="Anokoua" class="Abobo">Anokoua</ion-option>
+              <ion-option value="Avocatiers" class="Abobo">Avocatiers</ion-option>
+              <ion-option value="BC" class="Abobo">BC(belle cité)</ion-option>
+              <ion-option value="Belle ville" class="Abobo">Belle ville</ion-option>
+              <ion-option value="Camp commando" class="Abobo">Camp commando</ion-option>
+              <ion-option value="Derrière pont" class="Abobo">Derrière pont</ion-option>
+              <ion-option value="Abobo gare" class="Abobo">Abobo gare</ion-option>
+              <ion-option value="Houphouet Boigny" class="Abobo">Houphouet Boigny</ion-option>
+              <ion-option value="N'Dotre" class="Abobo">N'Dotre</ion-option>
+              <ion-option value="PK 18" class="Abobo">PK 18</ion-option>
+              <ion-option value="Plaque 1" class="Abobo">Plaque 1</ion-option>
+              <ion-option value="Samaké" class="Abobo">Samaké</ion-option>
+              <ion-option value="SOGEFIA" class="Abobo">SOGEFIA</ion-option>
+              <ion-option value="Université Nangui Abrogoua" class="Abobo">Université Nangui Abrogoua(Abobo Adjamé)</ion-option>
+            </div>
+
+            <div *ngIf="Adjame">
+              <ion-option value="Forum" class="Adjame">Forum</ion-option>
+              <ion-option value="220 logements" class="Adjame">220 logements</ion-option>
+              <ion-option value="Agban Gendarmerie" class="Adjame">Agban Gendarmerie</ion-option>
+              <ion-option value="Bracodi" class="Adjame">Bracodi</ion-option>
+              <ion-option value="Indénié" class="Adjame">Indénié</ion-option>
+              <ion-option value="Mirador" class="Adjame">Mirador</ion-option>
+              <ion-option value="Paillet" class="Adjame">Paillet</ion-option>
+              <ion-option value="Renault" class="Adjame">Renault</ion-option>
+              <ion-option value="Williamsville" class="Adjame">Williamsville</ion-option>
+              <ion-option value="St michel" class="Adjame">St michel</ion-option>
+              <ion-option value="Habitat 40" class="Adjame">Habitat 40</ion-option>
+            </div>
+
+            <div *ngIf="Yopougon">
+              <ion-option value="Zone industrielle" class="Yopougon">Zone industrielle</ion-option>
+              <ion-option value="Azito" class="Yopougon">Azito</ion-option>
+              <ion-option value="CHU" class="Yopougon">CHU</ion-option>
+              <ion-option value="Niangon nord" class="Yopougon">Niangon nord</ion-option>
+              <ion-option value="Académie des mers" class="Yopougon">Académie des mers</ion-option>
+              <ion-option value="Sogefia" class="Yopougon">Sogefia</ion-option>
+              <ion-option value="Millionnaire" class="Yopougon">Millionnaire</ion-option>
+              <ion-option value="Sicogi" class="Yopougon">Sicogi</ion-option>
+              <ion-option value="Selmair" class="Yopougon">Selmair</ion-option>
+              <ion-option value="Kouté" class="Yopougon">Koutée</ion-option>
+              <ion-option value="Maroc" class="Yopougon">Maroc</ion-option>
+              <ion-option value="Siporex" class="Yopougon">Siporex</ion-option>
+              <ion-option value="Andokoua" class="Yopougon">Andokoua</ion-option>
+              <ion-option value="Niangon sud" class="Yopougon">Niangon sud</ion-option>
+              <ion-option value="Lievre Rouge" class="Yopougon">Lievre Rouge</ion-option>
+              <ion-option value="Gesco" class="Yopougon">Gesco</ion-option>
+              <ion-option value="Toit rouge" class="Yopougon">Toit rouge</ion-option>
+              <ion-option value="Abobodoumin" class="Yopougon">Abobodoumin</ion-option>
+              <ion-option value="Cité verte" class="Yopougon">Cité verte</ion-option>
+              <ion-option value="Port-Bouet 2" class="Yopougon">Port-Bouet 2</ion-option>
+              <ion-option value="Ananerais" class="Yopougon">Ananerais</ion-option>
+              <ion-option value="Nouveau Quartier" class="Yopougon">Nouveau Quartier</ion-option>
+              <ion-option value="KM 17" class="Yopougon">KM 17</ion-option>
+              <ion-option value="Nouveau Quartier" class="Yopougon">Nouveau Quartier</ion-option>
+            </div>
+
+            <div *ngIf="Attecoube">
+              <ion-option value="Lokodjoro" class="Attecoube">Lokodjoro</ion-option>
+              <ion-option value="Cité Fermont" class="Attecoube">Cité Fermont </ion-option>
+              <ion-option value="Terminus 04" class="Attecoube">Terminus 04</ion-option>
+              <ion-option value="Attecoube 3" class="Attecoube">Attecoube 3</ion-option>
+              <ion-option value="Quartier ebrié" class="Attecoube">Quartier ebrié</ion-option>
+              <ion-option value="ST Joseph" class="Attecoube">ST Joseph</ion-option>
+              <ion-option value="Sebroko" class="Attecoube">Sebroko</ion-option>
+              <ion-option value="Abobo-Doumé" class="Attecoube">Abobo-Doumé</ion-option>
+              <ion-option value="Jerusalem" class="Attecoube">Jerusalem</ion-option>
+              <ion-option value="Santé" class="Attecoube">Santé</ion-option>
+            </div>
+
+            <div *ngIf="Cocody">
+              <ion-option value="Abatta" class="Cocody">Abatta</ion-option>
+              <ion-option value="Aghiens" class="Cocody">Aghien</ion-option>
+              <ion-option value="Akouédo" class="Cocody">Akouédo</ion-option>
+              <ion-option value="Angre" class="Cocody">Angre</ion-option>
+              <ion-option value="Angre château" class="Cocody">Angre château</ion-option>
+              <ion-option value="Anono" class="Cocody">Anono</ion-option>
+              <ion-option value="Attoban" class="Cocody">Attoban</ion-option>
+              <ion-option value="Blokosso" class="Cocody">Blokosso</ion-option>
+              <ion-option value="Cocody centre" class="Cocody">Cocody centre</ion-option>
+              <ion-option value="Bonoumin" class="Cocody">Bonoumin</ion-option>
+              <ion-option value="Danga" class="Cocody">Danga</ion-option>
+              <ion-option value="Deux-Plateau" class="Cocody">Deux Plateaux</ion-option>
+              <ion-option value="DJIBI" class="Cocody">DJIBI</ion-option>
+              <ion-option value="Faya" class="Cocody">Faya</ion-option>
+              <ion-option value="M'Badon" class="Cocody">M'Badon</ion-option>
+              <ion-option value="M'Pouto" class="Cocody">M'Pouto</ion-option>
+              <ion-option value="Plateau Dokui" class="Cocody">Plateau Dokui</ion-option>
+              <ion-option value="Riviera 2" class="Cocody">Riviera 2</ion-option>
+              <ion-option value="Riviera 3" class="Cocody">Riviera 3</ion-option>
+              <ion-option value="Riviera Beverly hills" class="Cocody">Riviera Beverly hills</ion-option>
+              <ion-option value="Riviera siad" class="Cocody">Riviera ciad</ion-option>
+              <ion-option value="Riviera Golf" class="Cocody">Riviera Golf</ion-option>
+              <ion-option value="Riviera Palmeraie" class="Cocody">Riviera Palmeraie</ion-option>
+              <ion-option value="Université FHB" class="Cocody">Université FHB</ion-option>
+              <ion-option value="Vallon" class="Cocody">Vallon</ion-option>
+            </div>
+            <div *ngIf="Plateau">
+              <ion-option value="Cité administrative" class="Plateau">Cité administrative</ion-option>
+              <ion-option value="Paris village" class="Plateau">Paris village</ion-option>
+              <ion-option value="Gare sud" class="Plateau">Gare sud</ion-option>
+              <ion-option value="Rue du commerce" class="Plateau">Rue du commerce</ion-option>
+              <ion-option value="Sitarail" class="Plateau">Sitarail</ion-option>
+              <ion-option value="Palais de justice" class="Plateau">Palais de justice</ion-option>
+              <ion-option value="Sorbonne" class="Plateau">Sorbonne</ion-option>
+            </div>
+
+            <div *ngIf="Marcory">
+              <ion-option value="Résidentiel" class="Marcory">Résidentiel</ion-option>
+              <ion-option value="Remblais" class="Marcory">Remblais</ion-option>
+              <ion-option value="Anoumabo" class="Marcory">Anoumabo</ion-option>
+              <ion-option value="Zone4" class="Marcory">Zone4</ion-option>
+              <ion-option value="Biétry" class="Marcory">Biétry</ion-option>
+              <ion-option value="Hibiscus" class="Marcory">Hibiscus</ion-option>
+              <ion-option value="Champroux" class="Marcory">Champroux</ion-option>
+              <ion-option value="Foyer des jeunes" class="Marcory">Foyer des jeunes</ion-option>
+              <ion-option value="Sicogi" class="Marcory">Sicogi</ion-option>
+            </div>
+
+            <div *ngIf="Koumassi">
+              <ion-option value="Remblais" class="Koumassi">Remblais</ion-option>
+              <ion-option value="Sicogi" class="Koumassi">Sicogi</ion-option>
+              <ion-option value="Sogefia" class="Koumassi">Sogefia</ion-option>
+            </div>
+
+            <div *ngIf="Treichville">
+              <ion-option value="La Ras" class="Treichville">La Ras</ion-option>
+              <ion-option value="Belle ville" class="Treichville">Belle ville</ion-option>
+              <ion-option value="France-Amérique" class="Treichville">France-Amérique</ion-option>
+              <ion-option value="Zone3" class="Treichville">Zone3</ion-option>
+              <ion-option value="Zone portuaire" class="Treichville">Zone portuaire</ion-option>
+              <ion-option value="Biafra" class="Treichville">Biafra</ion-option>
+              <ion-option value="Palais de la culture" class="Treichville">Palais de la culture</ion-option>
+              <ion-option value="Palais des sports" class="Treichville">Palais des sports</ion-option>
+              <ion-option value="Immeuble Nanan Yamousso" class="Treichville">Immeuble Nanan Yamousso</ion-option>
+            </div>
+
+            <div *ngIf="Portbouet">
+              <ion-option value="Gonzague" class="bouet">Gonzague</ion-option>
+              <ion-option value="PORT-BOUET centre" class="bouet">PORT-BOUET centre</ion-option>
+              <ion-option value="Vridi" class="bouet">Vridi</ion-option>
+              <ion-option value="Adjouffou" class="bouet">Adjouffou</ion-option>
+              <ion-option value="Aéroport" class="bouet">Aéroport</ion-option>
+              <ion-option value="Jean-Foly" class="bouet">Jean-Foly</ion-option>
+            </div>
+
+            <div *ngIf="Yamoussoukro">
+              <ion-option value="Yamoussoukro" class="bouet">Yamoussoukro</ion-option>
+            </div>
+            <div *ngIf="Bouake">
+              <ion-option value="Bouake" class="bouet">Bouaké</ion-option>
+            </div>
+            <div *ngIf="daloa">
+              <ion-option value="Daloa" class="bouet">Daloa</ion-option>
+            </div>
+
+            <div *ngIf="sp">
+              <ion-option value="San-Pedro" class="sp">San-Pédro</ion-option>
+            </div>
+          </ion-select>
+        </ion-item>
+      </div>
+
+
+      <ion-item>
+        <ion-label>
+          <ion-icon name="ios-bicycle-outline"></ion-icon>&nbsp;&nbsp; Livraison
+        </ion-label>
+        <ion-select formControlName="deliveryType" cancelText="Annuler">
+          <!-- <ion-select formControlName="deliveryType" (ionChange)="enableDate(rForm.value)"> -->
+          <ion-option *ngFor="let carrier of allCarrier" value="{{carrier.id_carrier}},{{carrier.price}}">{{
+            carrier.name }}</ion-option>
+
+        </ion-select>
+      </ion-item>
+
+      <!-- <div *ngIf="activeInstant">
+            <ion-item >
+                <ion-label><ion-icon name="ios-bicycle-outline"></ion-icon>&nbsp;&nbsp; Livraison</ion-label>
+                <ion-select formControlName="deliveryType">
+                  <ion-option *ngFor="let carrier of instantCarrier" value="{{carrier.id_carrier}},{{carrier.price}}}">{{carrier.name}}</ion-option>
+
+                </ion-select>
+            </ion-item>
+          </div> -->
+
+
+      <ion-item>
+        <ion-label class="icon_ajustement" fixed>
+          <ion-icon name="ios-home-outline"></ion-icon>
+        </ion-label>
+        <ion-input type="text" value="" formControlName="description" placeholder="Décrivez brièvement votre adresse"></ion-input>
+        <!-- <ion-input (ionChange)="activation()" type="text" value="" formControlName="description" placeholder="Décrivez brièvement votre adresse"></ion-input> -->
+      </ion-item>
+
+    </ion-list>
+
+  </form>
+</ion-content>
+
+<form [formGroup]="rForm">
+  <div class="confirm_button">
+    <ion-grid class="confirm_action">
+      <!-- <ion-row class="discount">
+                <ion-col col-8 class="discountText">
+                    <ion-input type="text" formControlName="discount" placeholder="Entre votre coupon"></ion-input>
+                </ion-col>
+                <ion-col col-4 class="discountButton">
+                    <button ion-button (click)="applyDiscount(rForm.value)">Appliquer</button>
+                </ion-col>
+              </ion-row> -->
+      <ion-row>
+        <ion-col col-6 class="global_total">
+          <ion-col class="global_title">Total: <br>
+            <span class="global_price"> {{totalAmount}} FCFA</span>
+          </ion-col>
+        </ion-col>
+        <!-- <ion-col col-6><button ion-button color="btn-orange" *ngIf="isCash" col-11 (click)="confirmOrder(rForm.value)" [disabled]="!rForm.valid">Valider</button></ion-col> -->
+      </ion-row>
+      <ion-row>
+        <ion-col col-12><button ion-button color="btn-orange" col-12 (click)="saveDateAdd()" [disabled]="!rForm.valid">
+            Confirmer </button></ion-col>
+        <!-- <ion-col col-12><button ion-button color="btn-orange" col-12 [disabled]="!rForm.valid"> Passez à la date </button></ion-col> -->
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</form>

@@ -1,0 +1,79 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="CartLoginPage">
+
+    <!-- <loader *ngIf="showSpiner"></loader> -->
+    <loader *ngIf="showSpiner"></loader>
+
+    <div *ngIf="userLogged" class="res">
+      <p>{{userLogged}}</p>
+    </div>
+
+    <div class="confirm">
+        <p>
+            <ion-grid>
+                <ion-row>
+                  <ion-col col-3 class="address">
+                      <a><ion-icon name="ios-person-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Connexion</span> </a>
+                  </ion-col>
+                  <ion-col col-3>
+                      <a><ion-icon name="ios-paper-plane-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Adresse</span> </a>
+                  </ion-col >
+                  <ion-col col-3>
+                      <a><ion-icon name="ios-calendar-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Date</span> </a>
+                  </ion-col>
+                  <ion-col col-3>
+                      <a><ion-icon name="ios-card-outline"></ion-icon>&nbsp;<br> <span class="innerText"> Paiement</span> </a>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </p>
+      </div>
+
+      <h4 class="blocTitle">Connectez-vous</h4>
+
+    <div col-12 class="login_form">
+
+      <form [formGroup]="rForm" (ngSubmit)="Register(rForm.value)">
+        <ion-list>
+              <ion-item col-10>
+                <ion-label fixed>E-Mail</ion-label>
+                <ion-input type="text" formControlName="mail" ></ion-input>
+              </ion-item>
+
+              <ion-item col-10 (click)="reset()">
+                <ion-label fixed>Password</ion-label>
+                <ion-input type="password" formControlName="password" ></ion-input>
+              </ion-item>
+
+          </ion-list>
+
+          <div *ngIf="showError" col-10 class="logErr">
+          <!-- <div *ngIf="logError" col-10 class="logErr"> -->
+            <p>Erreur d'authentification</p>
+          </div>
+
+          <div class="form_validate">
+              <button ion-button col-10 [disabled]="!rForm.valid">Se Connecter</button>
+          </div>
+
+        </form>
+
+      <div class="suscribe">
+          <p>Pas de compte? <button btn (click)="goToRegistration()"> S'inscrire</button></p>
+      </div>
+    </div>
+
+    <!-- <div class="suscribe">
+        <img src="assets/icon/logo.png" alt="">
+    </div> -->
+
+</ion-content>

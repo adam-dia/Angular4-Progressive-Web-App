@@ -1,0 +1,27 @@
+<!-- <ion-grid>
+    <ion-row>
+      <ion-col col-12 class="categorie_sub_item" (click)="goToCategorie(categories)">
+        <div class="categorie_picture" ><img src={{categories.picture}} alt=""></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+<div *ngIf="isPhone" class="phone">
+  <ion-grid col-6>
+    <ion-row>
+      <ion-col col-12 class="categorie_sub_item" (click)="goToCategorie(categories)">
+        <div class="categorie_picture"><img src={{categories.picture}} alt=""></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+<div *ngIf="isTablet" class="tablet">
+  <ion-grid col-6>
+    <ion-row>
+      <ion-col col-12 class="categorie_sub_item" (click)="goToCategorie(categories)">
+        <div class="categorie_picture"><img src={{categories.picture}} alt=""></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

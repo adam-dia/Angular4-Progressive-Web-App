@@ -1,0 +1,15 @@
+    <!-- <button ion-button icon-only (click)="goToCart()">
+      <ion-icon name="ios-cart"></ion-icon><ion-badge item-end *ngIf="showNumber">{{totalItem}}</ion-badge>
+    </button> -->
+
+    <div *ngIf="isPhone" class="phone">
+        <button ion-button icon-only (click)="goToCart()">
+            <ion-icon name="ios-cart"></ion-icon><ion-badge item-end *ngIf="showNumber">{{totalItem}}</ion-badge>
+        </button>
+    </div>
+
+    <div *ngIf="isTablet" class="tablet">
+        <button ion-button icon-only (click)="goToCart()">
+            <ion-icon name="ios-cart"></ion-icon><ion-badge item-end *ngIf="showNumber">{{totalItem}}</ion-badge>
+        </button>
+    </div>

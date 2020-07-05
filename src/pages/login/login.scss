@@ -1,0 +1,352 @@
+page-login {
+  .loginPage{
+    background: white;
+    background-size:cover;
+    filter: grayscale(.06);
+    -moz-filter: grayscale(.06);
+    -webkit-filter: grayscale(.06);
+  }
+  .phone {
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top: 20%;
+      color: white;
+      .slogan {
+        margin-bottom: 15px;
+        margin-top: -19px;
+        font-size: 9px;
+        font-weight: 600;
+      }
+      .points {
+        margin-top: -15px;
+        line-break: 5px;
+        img {
+          width: 70px;
+        }
+      }
+      h2{
+        font-size: 1.9pc;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+    }
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top:0;
+      color: white;
+      img{
+        width: 170px;
+        margin-bottom: -15px;
+      }
+      h3 {
+        color: #444242;
+        margin: 0px;
+        font-weight: 400;
+      }
+      p {
+        line-height: 30px;
+        color: #444242;
+        // background: red;
+        font-size: 13px;
+        margin: 0px;
+      }
+    }
+    .list-ios .item-block .item-inner{
+      border: 0px;
+    }
+    .login_form{
+      background: rgba(255, 255, 255, 1);
+      // box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.30);
+      margin: auto !important;
+      padding-top: 15px;
+      border-radius: 4px;
+      ion-list{
+        position: relative;
+        text-align: center;
+        top: 0px;
+        .first_element {
+          margin-bottom: -2px !important;
+          border-bottom: 1px solid silver !important;
+        }
+        ion-item{
+          margin: auto;
+          margin-bottom: 0px;
+          background: transparent;
+          border: 0px !important;
+          border-bottom: 2px solid white !important;
+          color: #151527 !important;
+          border: 3px solid white !important;
+          // border: 1px solid #a7a7a7 !important;
+          margin-bottom: -2px;
+          margin-bottom: 10px;
+          background: #eeeded;
+        }
+      }
+    }
+    .form_validate{
+      position: relative;
+      top: 0px;
+      margin-bottom: 3px;
+      text-align: center;
+      button{
+        background: #ff6600;
+        border: none;
+        color: white;
+        height: 40px;
+      }
+    }
+    .suscribe{
+      position: relative;
+      color: black;
+      top: -10px;
+      text-align: center;
+      button{
+        background: transparent;
+        color: #ff6600;
+        font-size: 1.3rem;
+        text-decoration: underline;
+      }
+    }
+    .list-ios{
+      margin: -1px 0 20px;
+    }
+    .page-title{
+      background: white;
+      position: relative;
+      top: 0px;
+      padding: 0px 10px;
+      border: 1px solid silver;
+      height: 30px;
+      p{
+        line-height: 3px;
+      }
+    }
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: transparent;
+      -webkit-box-shadow: transparent !important;
+      box-shadow: transparent;
+    }
+    .res{
+      background: red;
+      text-align: center;
+      padding: 10px;
+    }
+    @keyframes shake {
+      from,
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+      }
+
+      20%,
+      40%,
+      60%,
+      80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+      }
+    }
+    .logErr{
+      display: block;
+      margin: auto;
+      background: linear-gradient(#f05b5b, red);
+      text-align: center;
+      height: 30px;
+      margin-bottom: 10px;
+      margin-top: -3px;
+      border-radius: 4px;
+      animation: shake 1s;
+      p{
+        height: 20px;
+        margin: 0px;
+        color: white;
+      }
+    }
+  }
+
+  //******************* Tablet *********************
+
+  .tablet {
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top: 20%;
+      color: white;
+      .slogan {
+        margin-bottom: 15px;
+        margin-top: -19px;
+        font-size: 9px;
+        font-weight: 600;
+      }
+      .points {
+        margin-top: -15px;
+        line-break: 5px;
+        img {
+          width: 70px;
+        }
+      }
+      h2{
+        font-size: 1.9pc;
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+    }
+    .login_logo{
+      text-align: center;
+      font-size: 11rem;
+      margin-top:20px;
+      color: white;
+      img{
+        width: 200px;
+        margin-bottom: -15px;
+      }
+      h3 {
+        color: #444242;
+        margin: 0px;
+        font-weight: 400;
+        font-size: 0.35em;
+      }
+      p {
+        line-height: 50px;
+        color: #444242;
+        // background: red;
+        font-size: 20px;
+        margin: 0px;
+      }
+    }
+    .list-ios .item-block .item-inner{
+      border: 0px;
+    }
+    .login_form{
+      background: rgba(255, 255, 255, 1);
+      // box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.30);
+      margin: auto !important;
+      padding-top: 15px;
+      border-radius: 4px;
+      ion-list{
+        position: relative;
+        text-align: center;
+        top: 0px;
+        .first_element {
+          margin-bottom: -2px !important;
+          border-bottom: 1px solid silver !important;
+        }
+        ion-item{
+          margin: auto;
+          margin-bottom: 0px;
+          background: transparent;
+          border: 0px !important;
+          border-bottom: 2px solid white !important;
+          color: #151527 !important;
+          border: 3px solid white !important;
+          margin-bottom: -2px;
+          margin-bottom: 10px;
+          background: #eeeded;
+          height: 75px;
+          font-size: 1.4em;
+        }
+      }
+    }
+    .form_validate{
+      position: relative;
+      top: 0px;
+      margin-bottom: 3px;
+      text-align: center;
+      button{
+        background: #ff6600;
+        border: none;
+        color: white;
+        height: 60px;
+       font-size: 1.4em;
+      }
+    }
+    .suscribe{
+      position: relative;
+      color: black;
+      top: -10px;
+      text-align: center;
+      button{
+        background: transparent;
+        color: #ff6600;
+        font-size: 1.7rem;
+        text-decoration: underline;
+      }
+    }
+    .list-ios{
+      margin: -1px 0 20px;
+    }
+    .page-title{
+      background: white;
+      position: relative;
+      top: 0px;
+      padding: 0px 10px;
+      border: 1px solid silver;
+      height: 30px;
+      p{
+        line-height: 3px;
+      }
+    }
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+      border-bottom-color: transparent;
+      -webkit-box-shadow: transparent !important;
+      box-shadow: transparent;
+    }
+    .res{
+      background: red;
+      text-align: center;
+      padding: 10px;
+    }
+    @keyframes shake {
+      from,
+      to {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+      }
+
+      10%,
+      30%,
+      50%,
+      70%,
+      90% {
+        -webkit-transform: translate3d(-10px, 0, 0);
+        transform: translate3d(-10px, 0, 0);
+      }
+
+      20%,
+      40%,
+      60%,
+      80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+        transform: translate3d(10px, 0, 0);
+      }
+    }
+    .logErr{
+      display: block;
+      margin: auto;
+      background: linear-gradient(#f05b5b, red);
+      text-align: center;
+      height: 30px;
+      margin-bottom: 10px;
+      margin-top: -3px;
+      border-radius: 4px;
+      animation: shake 1s;
+      p{
+        height: 20px;
+        margin: 0px;
+        color: white;
+      }
+    }
+  }
+
+}
