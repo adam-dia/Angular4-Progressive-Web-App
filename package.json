@@ -47,7 +47,7 @@
         "cordova-plugin-device": "^1.1.4",
         "cordova-plugin-dialogs": "^2.0.1",
         "cordova-plugin-globalization": "^1.11.0",
-        "cordova-plugin-inappbrowser": "^2.0.2",
+        "cordova-plugin-inappbrowser": "^3.1.0",
         "cordova-plugin-nativestorage": "^2.2.2",
         "cordova-plugin-network-information": "^2.0.1",
         "cordova-plugin-screen-orientation": "^3.0.1",
